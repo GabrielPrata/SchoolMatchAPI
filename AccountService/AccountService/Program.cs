@@ -1,5 +1,8 @@
+using AccountService.Model.Base;
 using AccountService.Service;
 using AccountService.Services;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace AccountService
 {
@@ -14,7 +17,13 @@ namespace AccountService
             var mongoConnection = builder.Configuration["AppConfiguration:ConnectionStringMongo"];
 
             // Add services to the container.
-            builder.Services.AddScoped<IUserDataService>(provider => new UserDataService(sqlConnection, mongoConnection));
+            builder.Services.Configure<EmailConfig>(builder.Configuration.GetSection("EmailNaoResponda"));
+            builder.Services.AddScoped<IUserDataService>(provider =>
+            {
+                var emailConfig = provider.GetRequiredService<IOptions<EmailConfig>>();
+                return new UserDataService(sqlConnection, mongoConnection, emailConfig);
+            });
+
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

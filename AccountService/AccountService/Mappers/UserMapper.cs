@@ -1,5 +1,6 @@
 ﻿using AccountService.Data.DTO;
-using AccountService.Model;
+using AccountService.Model.MongoModels;
+using AccountService.Model.SqlModels;
 
 namespace AccountService.Mappers
 {
@@ -23,6 +24,8 @@ namespace AccountService.Mappers
 
                 UsuarioCreatedAt = sqlData.UsuarioCreatedAt,
                 UsuarioEditedAt = sqlData.UsuarioEditedAt,
+                BlocosUsuario = sqlData.BlocosUsario,
+                BlocoPrincipalId = sqlData.BlocoPrincipalId,
 
                 // Mongo fields
                 MongoId = mongoData._id,
@@ -43,8 +46,8 @@ namespace AccountService.Mappers
                 Fuma = mongoData.Fuma,
                 AtividadeFisica = mongoData.AtividadeFisica,
                 TipoRole = mongoData.TipoRole,
-                UrlMusica = mongoData.UrlMusica,
                 ExibirSexualidade = mongoData.ExibirSexualidade,
+                SpotifyMusicData = mongoData.SpotifyMusicData,
             };
 
             return model;
@@ -55,7 +58,6 @@ namespace AccountService.Mappers
             var model = new SqlUserData
             {
                 // SQL DTO fields
-                IdUsuario = dto.IdUsuario,
                 NomeUsuario = dto.Nome,
                 SobrenomeUsuario = dto.Sobrenome,
                 EmailUsuario = dto.EmailUsuario,
@@ -66,6 +68,8 @@ namespace AccountService.Mappers
                 UsuarioPreferenciaGenero = dto.UsuarioPreferencia,
                 UsuarioCreatedAt = dto.UsuarioCreatedAt,
                 UsuarioEditedAt = dto.UsuarioEditedAt,
+                BlocosUsario = dto.BlocosUsuario,
+                BlocoPrincipalId = dto.BlocoPrincipalId
             };
 
             return model;
@@ -76,6 +80,8 @@ namespace AccountService.Mappers
             var model = new MongoUserData
             {
                 // Mongo DTO fields
+                Nome = dto.Nome,
+                Sobrenome = dto.Sobrenome,
                 Curso = dto.curso,
                 BlocoPrincipal = dto.BlocoPrincipal,
                 BlocosSecundarios = dto.BlocosSecundarios,
@@ -93,10 +99,10 @@ namespace AccountService.Mappers
                 Fuma = dto.Fuma,
                 AtividadeFisica = dto.AtividadeFisica,
                 TipoRole = dto.TipoRole,
-                UrlMusica = dto.UrlMusica,
                 ExibirSexualidade = dto.ExibirSexualidade,
                 CriadoEm = dto.UsuarioCreatedAt,
                 ModificadoEm = dto.UsuarioEditedAt,
+                SpotifyMusicData = dto.SpotifyMusicData,
             };
 
             return model;

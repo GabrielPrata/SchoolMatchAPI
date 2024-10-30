@@ -1,6 +1,9 @@
 ﻿using AccountService.Data.DTO;
 using AccountService.Repository.Queries;
 using AccountService.Mappers;
+using AccountService.Model.MongoModels;
+using AccountService.Model.SqlModels;
+using AccountService.Model.Base;
 
 namespace AccountService.Repository
 {
@@ -27,8 +30,8 @@ namespace AccountService.Repository
 
                 if (sqlModel != null && mongoModel != null)
                 {
-                   var model = UserMapper.ToDto(sqlModel, mongoModel);
-                   return model;
+                    var model = UserMapper.ToDto(sqlModel, mongoModel);
+                    return model;
                 }
                 #endregion
 
@@ -40,9 +43,58 @@ namespace AccountService.Repository
             }
         }
 
-        public Task SaveUserData(UserDataDTO userData)
+        public async Task SaveUserData(UserDataDTO userData)
         {
-            throw new NotImplementedException();
+            if (await _sqlQueries.VerifyUserExist(userData.EmailUsuario))
+            {
+                var error = new ApiErrorModel("Este endereço de e-mail já está cadastrado em nosso sistema!", 409, Environment.StackTrace);
+                throw new ApiException(error);
+            }
+
+
+            SqlUserData sqlData = userData.ToSqlModel();
+            MongoUserData mongoData = userData.ToMongoModel();
+
+            int userId = await _sqlQueries.SaveUserData(sqlData);
+
+            foreach (int genreId in sqlData.UsuarioPreferenciaGenero)
+            {
+                await _sqlQueries.SaveUserGenreInterests(userId, genreId);
+            }
+
+            sqlData.BlocosUsario.Add(sqlData.BlocoPrincipalId);
+            foreach (int blockId in sqlData.BlocosUsario)
+            {
+                await _sqlQueries.SaveUserBlocks(userId, blockId);
+            }
+            mongoData.IdUsuario = userId;
+            await _mongoQueries.SaveUserData(mongoData);
+        }
+
+        public async Task<bool> SaveEmailToVerify(string userEmail)
+        {
+            //Verifico se o e-mail já foi verificado
+            if (await _sqlQueries.CheckIfEmailIsVerified(userEmail))
+            {
+                var error = new ApiErrorModel("Este endereço de e-mail já está cadastrado em nosso sistema!", 409, Environment.StackTrace);
+                throw new ApiException(error);
+            }
+
+
+            //Verifico se o email ja foi cadastrado no banco de dados
+            if (await _sqlQueries.CheckIfEmailVerifyIsPendent(userEmail))
+            {
+                //Se não estiver cadastrado, salvo ele no banco
+                await _sqlQueries.SaveEmailToVerify(userEmail);
+            }
+
+            return true;
+            
+        }
+
+        public async Task<bool> CheckIfEmailIsVerified(string userEmail)
+        {
+            return await _sqlQueries.CheckIfEmailIsVerified(userEmail);
         }
     }
 }

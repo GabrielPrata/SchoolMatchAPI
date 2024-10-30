@@ -86,3 +86,9 @@ C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\refint\AccountS
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\AccountService.pdb
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\AccountService.genruntimeconfig.cache
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\ref\AccountService.dll
+C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\MailKit.dll
+C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\MimeKit.dll
+C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\System.Formats.Asn1.dll
+C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll

@@ -7,5 +7,7 @@ namespace AccountService.Service
 
         Task<UserDataDTO> GetUserDataById(int userId);
         Task SaveUserData(UserDataDTO userData);
+        Task SaveEmailToVerify(string userEmail);
+        Task<bool> CheckIfEmailIsVerified(string userEmail);
     }
 }

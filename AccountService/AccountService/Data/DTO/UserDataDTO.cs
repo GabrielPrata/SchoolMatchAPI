@@ -1,10 +1,12 @@
-﻿namespace AccountService.Data.DTO
+﻿using AccountService.Model.MongoModels;
+
+namespace AccountService.Data.DTO
 {
     public class UserDataDTO
     {
         // Campos do MongoUserDataDTO
-        public string MongoId { get; set; }
-        public int IdUsuario { get; set; }
+        public string? MongoId { get; set; }
+        public int? IdUsuario { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string curso { get; set; }
@@ -24,8 +26,8 @@
         public string Fuma { get; set; }
         public string AtividadeFisica { get; set; }
         public string TipoRole { get; set; }
-        public string UrlMusica { get; set; }
         public bool ExibirSexualidade { get; set; }
+        public SpotifyMusicModel SpotifyMusicData { get; set; }
 
         // Campos do SQLUserDataDTO
         public string EmailUsuario { get; set; }
@@ -33,8 +35,10 @@
         public bool UsuarioVerificado { get; set; }
         public int CursoId { get; set; }
         public int GeneroId { get; set; }
-        public int UsuarioPreferencia { get; set; }
+        public List<int> UsuarioPreferencia { get; set; }
         public DateTime UsuarioCreatedAt { get; set; }
         public DateTime UsuarioEditedAt { get; set; }
+        public int BlocoPrincipalId { get; set; }
+        public List<int> BlocosUsuario { get; set; }
     }
 }

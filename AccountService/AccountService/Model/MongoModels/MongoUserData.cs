@@ -2,7 +2,7 @@
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
-namespace AccountService.Model
+namespace AccountService.Model.MongoModels
 {
     public class MongoUserData
     {
@@ -70,8 +70,6 @@ namespace AccountService.Model
         [BsonElement("TipoRole")]
         public string TipoRole { get; set; }
 
-        [BsonElement("UrlMusica")]
-        public string UrlMusica { get; set; }
         [BsonElement("ExibirSexualidade")]
         public bool ExibirSexualidade { get; set; }
 
@@ -79,6 +77,9 @@ namespace AccountService.Model
         public DateTime CriadoEm { get; set; }
         [BsonElement("ModificadoEm")]
         public DateTime ModificadoEm { get; set; }
+
+        [BsonElement("SpotifyMusicData")]
+        public SpotifyMusicModel SpotifyMusicData { get; set; }
     }
 }
 
