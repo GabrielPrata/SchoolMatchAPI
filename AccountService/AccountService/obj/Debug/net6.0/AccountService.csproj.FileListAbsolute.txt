@@ -80,7 +80,6 @@ C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\staticwebassets
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\staticwebassets.build.json
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\staticwebassets.development.json
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\scopedcss\bundle\AccountService.styles.css
-C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\AccountService.csproj.CopyComplete
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\AccountService.dll
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\refint\AccountService.dll
 C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\AccountService.pdb
@@ -92,3 +91,5 @@ C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\MimeKit.dll
 C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\System.Formats.Asn1.dll
 C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\System.Security.Cryptography.Pkcs.dll
 C:\SchoolMatchAPI\AccountService\AccountService\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\AccountService.sourcelink.json
+C:\SchoolMatchAPI\AccountService\AccountService\obj\Debug\net6.0\AccountS.230B0D6C.Up2Date
