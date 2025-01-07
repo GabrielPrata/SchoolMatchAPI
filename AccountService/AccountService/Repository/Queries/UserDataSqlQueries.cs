@@ -107,7 +107,7 @@ namespace AccountService.Repository.Queries
                 INSERT INTO EMAILVALIDACAO(EMAIL)
                 VALUES(@Email)   
             ";
-
+            // TODO: aplicar singleton
             await using var conn = GetOpenConnection();
             var userData = await conn.ExecuteAsync(query,
                 new

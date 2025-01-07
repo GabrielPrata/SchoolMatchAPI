@@ -45,6 +45,8 @@ namespace AccountService.Repository
 
         public async Task SaveUserData(UserDataDTO userData)
         {
+            // TODO: separar a regra de negócio do repository:
+            // TODO: Aplicar unitOfWork - Commit Transactions, caso alguma dessas operações de erro, execute um rollback.
             if (await _sqlQueries.VerifyUserExist(userData.EmailUsuario))
             {
                 var error = new ApiErrorModel("Este endereço de e-mail já está cadastrado em nosso sistema!", 409, Environment.StackTrace);
@@ -73,9 +75,10 @@ namespace AccountService.Repository
 
         public async Task<bool> SaveEmailToVerify(string userEmail)
         {
-            //Verifico se o e-mail já foi verificado
+            //TODO: Criar classe static paa retornar as mensagens, Ex: ConstanteMensagens.EmailNaoCadastrado
             if (await _sqlQueries.CheckIfEmailIsVerified(userEmail))
             {
+                // TODO: Criar Enum de StatusCode
                 var error = new ApiErrorModel("Este endereço de e-mail já está cadastrado em nosso sistema!", 409, Environment.StackTrace);
                 throw new ApiException(error);
             }

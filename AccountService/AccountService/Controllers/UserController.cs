@@ -7,6 +7,7 @@ using AccountService.Data.DTO;
 namespace AccountService.Controllers
 {
     [ApiController]
+    //TODO: [Authorization]
     [Route("api/v1/[controller]")]
     public class UserController : ControllerBase
     {
@@ -20,7 +21,7 @@ namespace AccountService.Controllers
             _userDataService = userDataService;
         }
 
-        //Adicionar autenticacao nesta rota após o identity service ser finalizado
+        //TODO: Adicionar autenticacao nesta rota após o identity service ser finalizado
         [HttpGet]
         [Route("/users/data/{userId:int}")]
         public async Task<IActionResult> UserData([FromRoute] int userId)
@@ -57,7 +58,7 @@ namespace AccountService.Controllers
             }
             catch (ArgumentException ex)
             {
-
+                //TODO: poderia ser um catch
                 if (ex is ApiException apiEx)
                 {
                     // Se é uma ApiException, trate-a de forma específica
@@ -76,7 +77,8 @@ namespace AccountService.Controllers
             }
 
         }
-
+        //TODO: V maiusculo fugiu do padrão
+        //TODO:  analisar outro nome para a URL
         [HttpPost]
         [Route("/users/data/VerifyEmail")]
         public async Task<IActionResult> SaveEmailToVerify(string userEmail)
