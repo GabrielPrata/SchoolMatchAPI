@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\AccountService",
-    "\\AccountService\\AccountService",
-    "\\AccountService\\AccountService\\Controllers"
+    "\\SchoolMatchAPI"
   ],
-  "SelectedNode": "\\AccountService\\AccountService\\Controllers\\UserController.cs",
+  "SelectedNode": "\\SchoolMatchAPI.sln",
   "PreviewInSolutionExplorer": false
 }
