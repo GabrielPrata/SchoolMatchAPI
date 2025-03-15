@@ -7,6 +7,8 @@ namespace AccountService.Repository.Queries
     public class UserDataSqlQueries
     {
         private readonly string _connectionString;
+        private SqlConnection _connection;
+
         public UserDataSqlQueries(string strConnection)
         {
             _connectionString = strConnection;
@@ -14,9 +16,13 @@ namespace AccountService.Repository.Queries
 
         private SqlConnection GetOpenConnection()
         {
-            var connection = new SqlConnection(_connectionString);
-            connection.Open();
-            return connection;
+            if (_connection == null)
+            {
+                _connection = new SqlConnection(_connectionString);
+                _connection.Open();
+                return _connection;
+            }
+            return _connection;
         }
 
 
