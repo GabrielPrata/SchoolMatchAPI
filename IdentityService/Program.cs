@@ -1,3 +1,4 @@
+using IdentityService.Initializer;
 using IdentityService.Model;
 using IdentityService.Model.Context;
 using IdentityService.Models.Configuration;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace IdentityService
 {
@@ -37,6 +39,7 @@ namespace IdentityService
                 .AddInMemoryClients(clients)
                 .AddAspNetIdentity<ApplicationUser>();
 
+            builder.Services.AddScoped<IDbInitializer, DbInitializer>();
 
             builderIdentity.AddDeveloperSigningCredential();
 
@@ -44,6 +47,9 @@ namespace IdentityService
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
+
+            var scope = app.Services.CreateScope();
+            var dbInitializer = scope.ServiceProvider.GetService<IDbInitializer>();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -54,6 +60,7 @@ namespace IdentityService
             }
 
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -61,6 +68,8 @@ namespace IdentityService
             app.UseIdentityServer();
 
             app.UseAuthorization();
+
+            dbInitializer.Initialize();
 
             app.MapControllerRoute(
                 name: "default",
