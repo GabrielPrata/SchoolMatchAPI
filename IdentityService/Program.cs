@@ -1,4 +1,10 @@
+using IdentityService.Model;
+using IdentityService.Model.Context;
 using IdentityService.Models.Configuration;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace IdentityService
 {
@@ -11,6 +17,28 @@ namespace IdentityService
             var configuration = builder.Configuration;
 
             var clients = IdentityConfiguration.GetClients(configuration);
+
+            var sqlConnection = builder.Configuration["SQLConnection:SQLServerString"];
+
+            builder.Services.AddDbContext<SQLServerContext>(options => options.UseSqlServer(sqlConnection));
+
+            builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<SQLServerContext>().AddDefaultTokenProviders();
+
+            var builderIdentity = builder.Services.AddIdentityServer(options =>
+            {
+                options.Events.RaiseErrorEvents = true;
+                options.Events.RaiseInformationEvents = true;
+                options.Events.RaiseFailureEvents = true;
+                options.Events.RaiseSuccessEvents = true;
+                options.EmitStaticAudienceClaim = true;
+            })
+                .AddInMemoryIdentityResources(IdentityConfiguration.IdentityResources)
+                .AddInMemoryApiScopes(IdentityConfiguration.ApiScopes)
+                .AddInMemoryClients(clients)
+                .AddAspNetIdentity<ApplicationUser>();
+
+
+            builderIdentity.AddDeveloperSigningCredential();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -29,6 +57,8 @@ namespace IdentityService
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseIdentityServer();
 
             app.UseAuthorization();
 

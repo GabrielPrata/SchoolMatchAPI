@@ -1,10 +1,12 @@
-﻿using Duende.IdentityServer.Models;
+﻿using Duende.IdentityServer;
+using Duende.IdentityServer.Models;
 
 namespace IdentityService.Models.Configuration
 {
     public static class IdentityConfiguration
     {
         public const string User = "User";
+        public const string Client = "Client";
 
         public static IEnumerable<IdentityResource> IdentityResources =>
             new List<IdentityResource>
@@ -14,7 +16,7 @@ namespace IdentityService.Models.Configuration
                 new IdentityResources.Profile()
             };
 
-        public static IEnumerable<ApiScope> ApiScopes() =>
+        public static IEnumerable<ApiScope> ApiScopes =>
             new List<ApiScope>
             {
                 new ApiScope("schoolMatch", "AccountService"),
@@ -35,6 +37,21 @@ namespace IdentityService.Models.Configuration
                     ClientSecrets = { new Secret(clientSecret.Sha256()) },
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     AllowedScopes = {"read", "write", "profile"}
+                },
+                new Client
+                {
+                    ClientId = "school_match",
+                    ClientSecrets = { new Secret(clientSecret.Sha256()) },
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RedirectUris = { "https://localhost:7265/signin-oidc" },
+                    PostLogoutRedirectUris = { "https://localhost:7265/signout-callback-oidc" },
+                    AllowedScopes = new List<String> 
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Email,
+                        "school_match"
+                    }
                 }
             };
         }
