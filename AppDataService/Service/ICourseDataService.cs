@@ -1,4 +1,5 @@
 ﻿using AccountService.Data.DTO;
+using AppDataService.Data.DTO;
 
 namespace AccountService.Service
 {
@@ -6,6 +7,7 @@ namespace AccountService.Service
     {
 
         Task<List<CourseDataDTO>> GetCourses();
+        Task<CourseDurationDTO> GetCourseDuration(int courseId);
 
     }
 }
