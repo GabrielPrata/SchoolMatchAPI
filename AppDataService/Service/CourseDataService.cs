@@ -1,14 +1,11 @@
 ﻿using AccountService.Service;
 using AccountService.Data.DTO;
 using AccountService.Repository;
-using Microsoft.Extensions.Options;
-using MimeKit;
-using MailKit.Net.Smtp;
-using MailKit.Security;
-using AccountService.Model.Base;
 using AccountService.Mappers;
 using AccountService.Model.SqlModels;
-using System.Linq;
+using AppDataService.Data.DTO;
+using AppDataService.Mappers;
+using Microsoft.Data.SqlClient;
 
 namespace AccountService.Services;
 
@@ -16,9 +13,16 @@ public class CourseDataService : ICourseDataService
 {
     private readonly CourseDataRepository _courseRepository;
 
-    public CourseDataService(string sqlConnection)
+    public CourseDataService(SqlConnection sqlConnection)
     {
         _courseRepository = new CourseDataRepository(sqlConnection);
+    }
+
+    public async Task<CourseDurationDTO> GetCourseDuration(int courseID)
+    {
+        var data = await _courseRepository.GetCourseDuration(courseID);
+
+        return CourseDurationMapper.ToDto(data);
     }
 
     public async Task<List<CourseDataDTO>> GetCourses()

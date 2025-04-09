@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
+    "\\AppDataService",
     "\\IdentityService",
-    "\\SchoolMatchAPI"
+    "\\SchoolMatchAPI",
+    "\\SchoolMatchAPI\\Repository",
+    "\\SchoolMatchAPI\\Repository\\Queries"
   ],
   "SelectedNode": "\\SchoolMatchAPI.sln",
   "PreviewInSolutionExplorer": false

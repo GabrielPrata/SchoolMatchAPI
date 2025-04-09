@@ -1,6 +1,5 @@
 using AccountService.Model.Base;
 using Microsoft.AspNetCore.Mvc;
-using AccountService.Services;
 using AccountService.Service;
 using AccountService.Data.DTO;
 

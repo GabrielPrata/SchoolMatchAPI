@@ -44,5 +44,30 @@ namespace AccountService.Controllers
             }
 
         }
+
+        [HttpGet]
+        [Route("/appdata/courses/AppCourseDuration/{courseId:int}")]
+        public async Task<IActionResult> AppCourseDuration([FromRoute] int courseId)
+        {
+            try
+            {
+
+                var courseDuration = await _courseDataService.GetCourseDuration(courseId);
+
+                if (courseDuration != null)
+                {
+                    return Ok(courseDuration);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new ApiErrorModel(ex.Message, ex.StackTrace));
+            }
+
+        }
     }
 }

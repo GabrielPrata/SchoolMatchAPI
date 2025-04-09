@@ -16,7 +16,7 @@ namespace AccountService.Repository.Queries
 
         private SqlConnection GetOpenConnection()
         {
-            if (_connection == null)
+            if (_connection == null || string.IsNullOrEmpty(_connection.ConnectionString))
             {
                 _connection = new SqlConnection(_connectionString);
                 _connection.Open();
