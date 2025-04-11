@@ -1,11 +1,12 @@
 using AccountService.Model.Base;
 using AccountService.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountService.Controllers
 {
     [ApiController]
-    //TODO: [Authorization]
+    [Authorize]
     [Route("api/v1/[controller]")]
     public class CourseDataController : ControllerBase
     {

@@ -2,12 +2,13 @@
 using AccountService.Service;
 using AppDataService.Repository;
 using AppDataService.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountService.Controllers
 {
     [ApiController]
-    //TODO: [Authorization]
+    [Authorize]
     [Route("api/v1/[controller]")]
     public class SexualityDataController : ControllerBase
     {
