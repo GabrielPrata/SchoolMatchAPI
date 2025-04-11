@@ -1,8 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\SchoolMatchAPI\\",
+  "WorkspaceRootPath": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|c:\\schoolmatchapi\\schoolmatchapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|solutionrelative:schoolmatchapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -19,6 +20,12 @@
       "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\model\\base\\basicauthsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+<<<<<<< HEAD
+      "AbsoluteMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\schoolmatchapi\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|solutionrelative:schoolmatchapi\\repository\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+>>>>>>> c0bf93e5df4cc202422280b1de35846840a8b494
       "AbsoluteMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|c:\\schoolmatchapi\\appdataservice\\controllers\\sexualitydatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\controllers\\sexualitydatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,8 +42,30 @@
       "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|c:\\schoolmatchapi\\appdataservice\\utils\\basicauthenticationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\utils\\basicauthenticationhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|c:\\schoolmatchapi\\appdataservice\\service\\iinterestsdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\service\\iinterestsdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|c:\\schoolmatchapi\\appdataservice\\repository\\sexualitydatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\repository\\sexualitydatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|c:\\schoolmatchapi\\appdataservice\\repository\\iinterestsdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\repository\\iinterestsdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|c:\\schoolmatchapi\\appdataservice\\service\\sexualitydataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\service\\sexualitydataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|c:\\schoolmatchapi\\appdataservice\\repository\\interestsdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\repository\\interestsdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 014d912be2e034c7a780888e4a5e6994b6b9b253
+>>>>>>> c0bf93e5df4cc202422280b1de35846840a8b494
     }
   ],
   "DocumentGroupContainers": [
@@ -49,6 +78,32 @@
           "SelectedChildIndex": 3,
           "Children": [
             {
+<<<<<<< HEAD
+=======
+              "$type": "Document",
+              "DocumentIndex": 0,
+<<<<<<< HEAD
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Repository\\UserRepository.cs",
+              "RelativeDocumentMoniker": "SchoolMatchAPI\\Repository\\UserRepository.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Repository\\UserRepository.cs",
+              "RelativeToolTip": "SchoolMatchAPI\\Repository\\UserRepository.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T17:03:01.429Z",
+=======
+              "Title": "SexualityDataController.cs",
+              "DocumentMoniker": "C:\\SchoolMatchAPI\\AppDataService\\Controllers\\SexualityDataController.cs",
+              "RelativeDocumentMoniker": "AppDataService\\Controllers\\SexualityDataController.cs",
+              "ToolTip": "C:\\SchoolMatchAPI\\AppDataService\\Controllers\\SexualityDataController.cs",
+              "RelativeToolTip": "AppDataService\\Controllers\\SexualityDataController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAAwBoAAAA6AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T00:41:09.485Z",
+              "EditorCaption": ""
+            },
+            {
+>>>>>>> c0bf93e5df4cc202422280b1de35846840a8b494
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
@@ -175,6 +230,7 @@
               "ViewState": "AQIAAAcAAAAAAAAAAAAuwDwAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-21T23:31:16.409Z",
+>>>>>>> 014d912be2e034c7a780888e4a5e6994b6b9b253
               "EditorCaption": ""
             }
           ]
