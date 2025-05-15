@@ -13,7 +13,6 @@ namespace AccountService.Mappers
 
                 CourseId = sqlData.IdCurso,
                 CourseName = sqlData.NomeCurso,
-                TotalPeriodsCourse = sqlData.TotalPeriodosCurso,
               
 
             };
@@ -28,7 +27,6 @@ namespace AccountService.Mappers
                 // SQL DTO fields
                 IdCurso = dto.CourseId,
                 NomeCurso = dto.CourseName,
-                TotalPeriodosCurso = dto.TotalPeriodsCourse,
 
             };
 

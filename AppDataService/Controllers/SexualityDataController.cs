@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace AccountService.Controllers
 {
     [ApiController]
-    //TODO: [Authorization]
     [Route("api/v1/[controller]")]
+    [ServiceFilter(typeof(BasicAuthAttribute))]
+
     public class SexualityDataController : ControllerBase
     {
 
@@ -21,7 +22,6 @@ namespace AccountService.Controllers
             _sexualityDataService = sexualityDataService;
         }
 
-        //TODO: Adicionar autenticacao nesta rota após o identity service ser finalizado
         [HttpGet]
         [Route("/appdata/sexuality/GetAllSexualities")]
         public async Task<IActionResult> GetAllSexualities()

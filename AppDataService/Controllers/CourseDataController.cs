@@ -5,8 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace AccountService.Controllers
 {
     [ApiController]
-    //TODO: [Authorization]
     [Route("api/v1/[controller]")]
+    //[ServiceFilter(typeof(BasicAuthAttribute))]
+
     public class CourseDataController : ControllerBase
     {
 
@@ -19,7 +20,6 @@ namespace AccountService.Controllers
             _courseDataService = courseDataService;
         }
 
-        //TODO: Adicionar autenticacao nesta rota após o identity service ser finalizado
         [HttpGet]
         [Route("/appdata/courses/AppCourses")]
         public async Task<IActionResult> AppCourses()

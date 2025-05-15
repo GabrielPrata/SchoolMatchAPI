@@ -4,6 +4,5 @@
     {
         public int CourseId { get; set; }
         public string CourseName { get; set; }
-        public int TotalPeriodsCourse { get; set; }
     }
 }

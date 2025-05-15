@@ -6,8 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace AccountService.Controllers
 {
     [ApiController]
-    //TODO: [Authorization]
     [Route("api/v1/[controller]")]
+    [ServiceFilter(typeof(BasicAuthAttribute))]
+
     public class BlocDataController : ControllerBase
     {
 
@@ -20,7 +21,6 @@ namespace AccountService.Controllers
             _blockDataService = blockDataService;
         }
 
-        //TODO: Adicionar autenticacao nesta rota após o identity service ser finalizado
         [HttpGet]
         [Route("/appdata/blocks/MainBlocks")]
         public async Task<IActionResult> MainBlocks()
