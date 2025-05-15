@@ -14,18 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Obter as strings de conexão do arquivo de configuração
 var sqlConnection = builder.Configuration["AppConfiguration:ConnectionStringSQL"];
 
-<<<<<<< HEAD
-=======
-builder.Services.Configure<BasicAuthSettings>(
-    builder.Configuration.GetSection("BasicAuthSettings"));
-
-
->>>>>>> 5e9c2048ff1c4097cf6fccd9f1cadf1d65570d2e
-
 // Add services to the container.
-builder.Services.Configure<BasicAuthConfig>(
+builder.Services.Configure<BasicAuthSettings>(
     builder.Configuration.GetSection("BasicAuth"));
-builder.Services.AddScoped<BasicAuthAttribute>();
 
 
 

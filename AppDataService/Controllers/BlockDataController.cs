@@ -7,12 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace AccountService.Controllers
 {
     [ApiController]
-<<<<<<< HEAD
-=======
     [Authorize]
->>>>>>> 5e9c2048ff1c4097cf6fccd9f1cadf1d65570d2e
     [Route("api/v1/[controller]")]
-    [ServiceFilter(typeof(BasicAuthAttribute))]
 
     public class BlocDataController : ControllerBase
     {
