@@ -4,6 +4,7 @@
     "\\AppDataService",
     "\\IdentityService",
     "\\SchoolMatchAPI",
+    "\\SchoolMatchAPI\\Controllers",
     "\\SchoolMatchAPI\\Repository",
     "\\SchoolMatchAPI\\Repository\\Queries"
   ],

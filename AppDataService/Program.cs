@@ -2,16 +2,25 @@ using AccountService.Service;
 using AccountService.Services;
 using AppDataService.Model;
 using AppDataService.Service;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Obter as strings de conexão do arquivo de configuração
 var sqlConnection = builder.Configuration["AppConfiguration:ConnectionStringSQL"];
 
+<<<<<<< HEAD
+=======
+builder.Services.Configure<BasicAuthSettings>(
+    builder.Configuration.GetSection("BasicAuthSettings"));
+
+
+>>>>>>> 5e9c2048ff1c4097cf6fccd9f1cadf1d65570d2e
 
 // Add services to the container.
 builder.Services.Configure<BasicAuthConfig>(
@@ -56,7 +65,37 @@ builder.Services.AddScoped<IInterestsDataService>(provider =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "App Data Service", Version = "v1" });
+
+    // Adiciona a definição de segurança
+    c.AddSecurityDefinition("basic", new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        Scheme = "basic",
+        In = ParameterLocation.Header,
+        Description = "Insira seu nome de usuário e senha no formato: user:password (será codificado automaticamente)"
+    });
+
+    // Exige autenticação basic para todos os endpoints
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "basic" }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
+
+builder.Services.AddAuthentication("BasicAuthentication")
+    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
+builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
