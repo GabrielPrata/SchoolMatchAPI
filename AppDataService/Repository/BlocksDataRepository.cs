@@ -34,7 +34,7 @@ namespace AppDataService.Repository
         {
             try
             {
-                const string query = "SELECT * FROM BLOCOS WHERE BLOCOFACULDADE = 0";
+                const string query = "SELECT * FROM BLOCOS";
 
                 return await _connection.QueryAsync<SqlBlockData?>(query);
             }

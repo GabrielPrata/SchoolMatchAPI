@@ -10,13 +10,13 @@ namespace AccountService.Controllers
     [Authorize]
     [Route("api/v1/[controller]")]
 
-    public class BlocDataController : ControllerBase
+    public class BlockDataController : ControllerBase
     {
 
-        private readonly ILogger<BlocDataController> _logger;
+        private readonly ILogger<BlockDataController> _logger;
         private IBlockDataService _blockDataService;
 
-        public BlocDataController(ILogger<BlocDataController> logger, IBlockDataService blockDataService)
+        public BlockDataController(ILogger<BlockDataController> logger, IBlockDataService blockDataService)
         {
             _logger = logger;
             _blockDataService = blockDataService;
