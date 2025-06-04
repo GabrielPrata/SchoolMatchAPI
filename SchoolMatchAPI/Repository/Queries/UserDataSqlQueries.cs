@@ -38,8 +38,8 @@ namespace AccountService.Repository.Queries
         public async Task<int> SaveUserData(SqlUserData data)
         {
             const string query = @"
-        INSERT INTO USUARIOS (NOMEUSUARIO, SOBRENOMEUSUARIO, EMAILUSUARIO, SENHAUSUARIO, USUARIOVERIFICADO, CURSOUSUARIO, USUARIOGENERO, USUARIOPREFERENCIAGENERO, USUARIOCREATEDAT)
-        VALUES (@Nome, @Sobrenome, @Email, @Senha, @Verificado, @Curso, @Genero, @PreferenciaGenero, @CreatedAt);
+        INSERT INTO USUARIOS (NOMEUSUARIO, SOBRENOMEUSUARIO, EMAILUSUARIO, SENHAUSUARIO, USUARIOVERIFICADO, CURSOUSUARIO, USUARIOGENERO, USUARIOCREATEDAT)
+        VALUES (@Nome, @Sobrenome, @Email, @Senha, @Verificado, @Curso, @Genero, @CreatedAt);
         SELECT CAST(SCOPE_IDENTITY() as int);
     ";
 
@@ -53,7 +53,6 @@ namespace AccountService.Repository.Queries
                 Verificado = data.UsuarioVerificado,
                 Curso = data.CursoUsuario,
                 Genero = data.UsuarioGenero,
-                PreferenciaGenero = data.UsuarioPreferenciaGenero,
                 CreatedAt = data.UsuarioCreatedAt,
             });
 

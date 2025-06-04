@@ -59,15 +59,15 @@ namespace AccountService.Repository
 
             int userId = await _sqlQueries.SaveUserData(sqlData);
 
-            foreach (int genreId in sqlData.UsuarioPreferenciaGenero)
+            foreach (GenderDTO gender in sqlData.UsuarioPreferenciaGenero)
             {
-                await _sqlQueries.SaveUserGenreInterests(userId, genreId);
+                await _sqlQueries.SaveUserGenreInterests(userId, gender.GenderId);
             }
 
-            sqlData.BlocosUsario.Add(sqlData.BlocoPrincipalId);
-            foreach (int blockId in sqlData.BlocosUsario)
+            sqlData.BlocosUsario.Add(sqlData.BlocoPrincipal);
+            foreach (BlocksDTO block in sqlData.BlocosUsario)
             {
-                await _sqlQueries.SaveUserBlocks(userId, blockId);
+                await _sqlQueries.SaveUserBlocks(userId, block.BlockId);
             }
             mongoData.IdUsuario = userId;
             await _mongoQueries.SaveUserData(mongoData);
