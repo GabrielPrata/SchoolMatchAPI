@@ -19,7 +19,7 @@ namespace AccountService.Model.MongoModels
         [BsonElement("Sobrenome")]
         public string Sobrenome { get; set; }
 
-        [BsonElement("curso")]
+        [BsonElement("Curso")]
         public string Curso { get; set; }
 
         [BsonElement("BlocoPrincipal")]

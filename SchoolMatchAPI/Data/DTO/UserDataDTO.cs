@@ -9,7 +9,7 @@ namespace AccountService.Data.DTO
         public int? IdUsuario { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
-        public string curso { get; set; }
+        public string Curso { get; set; }
         public string BlocoPrincipal { get; set; }
         public List<string> BlocosSecundarios { get; set; }
         public string Sexualidade { get; set; }

@@ -29,7 +29,7 @@ namespace AccountService.Mappers
 
                 // Mongo fields
                 MongoId = mongoData._id,
-                curso = mongoData.Curso,
+                Curso = mongoData.Curso,
                 BlocoPrincipal = mongoData.BlocoPrincipal,
                 BlocosSecundarios = mongoData.BlocosSecundarios,
                 Sexualidade = mongoData.Sexualidade,
@@ -82,7 +82,7 @@ namespace AccountService.Mappers
                 // Mongo DTO fields
                 Nome = dto.Nome,
                 Sobrenome = dto.Sobrenome,
-                Curso = dto.curso,
+                Curso = dto.Curso,
                 BlocoPrincipal = dto.BlocoPrincipal,
                 BlocosSecundarios = dto.BlocosSecundarios,
                 Sexualidade = dto.Sexualidade,
