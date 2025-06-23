@@ -12,9 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Mappers\" />
-    <Folder Include="Model\" />
     <Folder Include="Service\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
 
 </Project>
