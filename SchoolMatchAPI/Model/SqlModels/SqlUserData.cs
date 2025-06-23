@@ -1,4 +1,5 @@
-﻿using AccountService.Model.Base;
+﻿using AccountService.Data.DTO;
+using AccountService.Model.Base;
 
 namespace AccountService.Model.SqlModels
 {
@@ -12,8 +13,8 @@ namespace AccountService.Model.SqlModels
         public bool UsuarioVerificado { get; set; }
         public int CursoUsuario { get; set; }
         public int UsuarioGenero { get; set; }
-        public List<int> UsuarioPreferenciaGenero { get; set; }
-        public List<int> BlocosUsario { get; set; }
-        public int BlocoPrincipalId { get; set; }
+        public List<GenderDTO> UsuarioPreferenciaGenero { get; set; }
+        public List<BlocksDTO> BlocosUsario { get; set; }
+        public BlocksDTO BlocoPrincipal { get; set; }
     }
 }
