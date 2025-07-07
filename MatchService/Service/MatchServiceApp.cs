@@ -1,4 +1,5 @@
 ﻿using MatchService.Data.DTO;
+using MatchService.Model.Base;
 using MatchService.Repository;
 using Microsoft.Data.SqlClient;
 
@@ -15,14 +16,19 @@ namespace MatchService.Service
         }
 
 
+        //Melhorar as mensagens de retorno
         public async Task<LikeResponseDTO> SendUserLike(SendLikeDTO likeDTO)
         {
 
-            //preciso verificar se o remetente ja me curtiu
-            
+            if (!await _matchRepository.DoUsersExist(likeDTO))
+            {
+                throw new ApiException(new ApiErrorModel("Usuário não encontrado em nossa base de dados!", 404));
+            }
+
+
             if (await _matchRepository.VerifyIfIsMatch(likeDTO))
             {
-                await _matchRepository.UpdateUserLike(likeDTO);
+                await _matchRepository.UpdateUserLikeByReciever(likeDTO);
                 return new LikeResponseDTO
                 {
                     IsMatch = true,
@@ -30,19 +36,22 @@ namespace MatchService.Service
                 };
 
             }
+
+            if (await _matchRepository.VerifyIfRegisterExist(likeDTO))
+            {
+                await _matchRepository.UpdateUserLikeBySender(likeDTO);
+            }
             else
             {
-                //Preciso ver se o registro já nao existe, para evitar registros duplicados
                 await _matchRepository.InsertUserLike(likeDTO);
-
-                return new LikeResponseDTO
-                {
-                    IsMatch = false,
-                    Message = "Curtida enviada com sucesso."
-                };
             }
 
 
+            return new LikeResponseDTO
+            {
+                IsMatch = false,
+                Message = "Curtida enviada com sucesso."
+            };
         }
     }
 }

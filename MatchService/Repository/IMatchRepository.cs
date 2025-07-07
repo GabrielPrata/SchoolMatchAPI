@@ -6,6 +6,9 @@ namespace MatchService.Repository
     {
         Task<bool> VerifyIfIsMatch(SendLikeDTO likeDTO);
         Task InsertUserLike(SendLikeDTO likeDTO);
-        Task UpdateUserLike(SendLikeDTO likeDTO);
+        Task UpdateUserLikeByReciever(SendLikeDTO likeDTO);
+        Task UpdateUserLikeBySender(SendLikeDTO likeDTO);
+        Task<bool> VerifyIfRegisterExist(SendLikeDTO likeDTO);
+        Task<bool> DoUsersExist(SendLikeDTO likeDTO);
     }
 }
