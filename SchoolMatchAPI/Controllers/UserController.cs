@@ -2,6 +2,7 @@ using AccountService.Model.Base;
 using Microsoft.AspNetCore.Mvc;
 using AccountService.Service;
 using AccountService.Data.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AccountService.Controllers
 {
@@ -76,6 +77,40 @@ namespace AccountService.Controllers
             }
 
         }
+
+        [Authorize]
+        [HttpPut]
+        [Route("/users/data")]
+        public async Task<IActionResult> UserDataPut([FromBody] UserDataDTO dto)
+        {
+            try
+            {
+                //TODO: FINALIZAR A IMPLEMENTACAO CORRETA DO METODO
+                await _userDataService.UpdateUserData(dto);
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                //TODO: poderia ser um catch
+                if (ex is ApiException apiEx)
+                {
+                    // Se é uma ApiException, trate-a de forma específica
+                    return StatusCode(apiEx.ErrorModel.StatusCode, apiEx.ErrorModel);
+                }
+                else if (ex is ArgumentException argEx)
+                {
+                    // Trate outras ArgumentExceptions de forma genérica
+                    return BadRequest(new ApiErrorModel(argEx.Message, 400));
+                }
+                else
+                {
+                    // Trate todas outras exceções não esperadas
+                    return StatusCode(500, new ApiErrorModel("An unexpected error occurred", 500));
+                }
+            }
+
+        }
+
         //TODO: V maiusculo fugiu do padrão
         //TODO:  analisar outro nome para a URL
         //TODO:  Refatorar para colocar as funcionalidades de email em outra controller, service, repository e etc

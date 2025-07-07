@@ -1,9 +1,9 @@
 ﻿namespace MatchService.Data.DTO
 {
-    public class PinngPongDTO
+    public class PingPongDTO
     {
 
-        public PinngPongDTO(string response)
+        public PingPongDTO(string response)
         {
             Reponse = response;
         }

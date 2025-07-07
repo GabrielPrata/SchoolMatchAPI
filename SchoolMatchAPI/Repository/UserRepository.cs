@@ -73,6 +73,37 @@ namespace AccountService.Repository
             await _mongoQueries.SaveUserData(mongoData);
         }
 
+        public async Task UpdateUserData(UserDataDTO userData)
+        {
+            //TODO: FINALIZAR A IMPLEMENTACAO CORRETA DO MÉTODO
+            // TODO: separar a regra de negócio do repository:
+            // TODO: Aplicar unitOfWork - Commit Transactions, caso alguma dessas operações de erro, execute um rollback.
+            if (!await _sqlQueries.VerifyUserExist(userData.EmailUsuario))
+            {
+                var error = new ApiErrorModel("Usuário não encontrado no sistema!", 409, Environment.StackTrace);
+                throw new ApiException(error);
+            }
+
+
+            SqlUserData sqlData = userData.ToSqlModel();
+            MongoUserData mongoData = userData.ToMongoModel();
+
+            int userId = await _sqlQueries.SaveUserData(sqlData);
+
+            foreach (GenderDTO gender in sqlData.UsuarioPreferenciaGenero)
+            {
+                await _sqlQueries.SaveUserGenreInterests(userId, gender.GenderId);
+            }
+
+            sqlData.BlocosUsario.Add(sqlData.BlocoPrincipal);
+            foreach (BlocksDTO block in sqlData.BlocosUsario)
+            {
+                await _sqlQueries.SaveUserBlocks(userId, block.BlockId);
+            }
+            mongoData.IdUsuario = userId;
+            await _mongoQueries.SaveUserData(mongoData);
+        }
+
         public async Task<bool> SaveEmailToVerify(string userEmail)
         {
             //TODO: Criar classe static paa retornar as mensagens, Ex: ConstanteMensagens.EmailNaoCadastrado

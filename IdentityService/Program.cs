@@ -1,3 +1,5 @@
+using Duende.IdentityServer.Services;
+using Duende.IdentityServer.Validation;
 using IdentityService.Initializer;
 using IdentityService.Model;
 using IdentityService.Model.Context;
@@ -20,11 +22,7 @@ namespace IdentityService
 
             var clients = IdentityConfiguration.GetClients(configuration);
 
-            var sqlConnection = builder.Configuration["SQLConnection:SQLServerString"];
-
-            builder.Services.AddDbContext<SQLServerContext>(options => options.UseSqlServer(sqlConnection));
-
-            builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<SQLServerContext>().AddDefaultTokenProviders();
+            builder.Services.AddTransient<IExtensionGrantValidator, ExternalGrantValidator>();
 
             var builderIdentity = builder.Services.AddIdentityServer(options =>
             {
@@ -36,10 +34,7 @@ namespace IdentityService
             })
                 .AddInMemoryIdentityResources(IdentityConfiguration.IdentityResources)
                 .AddInMemoryApiScopes(IdentityConfiguration.ApiScopes)
-                .AddInMemoryClients(clients)
-                .AddAspNetIdentity<ApplicationUser>();
-
-            builder.Services.AddScoped<IDbInitializer, DbInitializer>();
+                .AddInMemoryClients(clients);
 
             builderIdentity.AddDeveloperSigningCredential();
 
@@ -68,8 +63,6 @@ namespace IdentityService
             app.UseIdentityServer();
 
             app.UseAuthorization();
-
-            dbInitializer.Initialize();
 
             app.MapControllerRoute(
                 name: "default",

@@ -2,6 +2,6 @@
 {
     public interface IMatchRepository
     {
-        Task<IEnumerable<SqlInterestsData>> GetAllInterests();
+        //Task<IEnumerable<SqlInterestsData>> GetAllInterests();
     }
 }

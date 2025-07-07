@@ -6,6 +6,7 @@ namespace AccountService.Repository
     {
         Task<UserDataDTO> GetUserDataById(int userId);
         Task SaveUserData(UserDataDTO userData);
+        Task UpdateUserData(UserDataDTO userData);
 
 
         //Task<SQLUserDataDTO> FindUserSqlById(string userId);

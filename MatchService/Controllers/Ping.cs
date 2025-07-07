@@ -8,9 +8,9 @@ namespace MatchService.Controllers
     public class Ping : ControllerBase
     {
         [HttpGet(Name = "Ping")]
-        public PinngPongDTO Get()
+        public PingPongDTO Get()
         {
-          return new PinngPongDTO("Pong");
+          return new PingPongDTO("Pong");
         }
     }
 }

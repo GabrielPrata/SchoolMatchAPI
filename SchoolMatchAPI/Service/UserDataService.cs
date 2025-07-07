@@ -31,6 +31,12 @@ public class UserDataService : IUserDataService
         await _userRepository.SaveUserData(userData);
     }
 
+    public async Task UpdateUserData(UserDataDTO userData)
+    {
+        //TODO: FINALIZAR A IMPLEMENTACAO CORRETA DO MÉTODO
+        await _userRepository.UpdateUserData(userData);
+    }
+
     public async Task SaveEmailToVerify(string userEmail)
     {
         if (await _userRepository.SaveEmailToVerify(userEmail))
