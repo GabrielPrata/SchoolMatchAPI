@@ -1,9 +1,23 @@
+using MatchService.Service;
+using Microsoft.Data.SqlClient;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+var sqlConnection = builder.Configuration["AppConfiguration:ConnectionStringSQL"];
+
+builder.Services.AddSingleton<SqlConnection>(provider =>
+{
+    return new SqlConnection(sqlConnection);
+});
+
+builder.Services.AddScoped<IMatchService>(provider =>
+{
+    var sqlConnection = provider.GetRequiredService<SqlConnection>();
+    return new MatchServiceApp(sqlConnection);
+});
 
 builder.Services.AddControllers();
 
@@ -69,6 +83,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

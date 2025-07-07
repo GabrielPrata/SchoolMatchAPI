@@ -33,7 +33,7 @@ namespace AccountService.Repository
         {
             const string query = "SELECT TOTALPERIODOSCURSO FROM CURSOS WHERE IDCURSO = @id";
 
-            return await _connection.QuerySingleOrDefaultAsync<SqlCourseDuration?>(query, new { id = courseId }); ;
+            return await _connection.QuerySingleOrDefaultAsync<SqlCourseDuration?>(query, new { id = courseId });
 
         }
     }
