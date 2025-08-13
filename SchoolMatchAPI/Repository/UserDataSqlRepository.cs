@@ -2,7 +2,7 @@
 using Dapper;
 using Microsoft.Data.SqlClient;
 
-namespace AccountService.Repository.Queries
+namespace AccountService.Repository
 {
     public class UserDataSqlRepository
     {

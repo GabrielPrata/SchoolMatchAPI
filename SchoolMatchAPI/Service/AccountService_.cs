@@ -1,6 +1,6 @@
 ﻿namespace AccountService.Service
 {
-    public class AccountService : IAccountService
+    public class AccountService_ : IAccountService
     {
     }
 }

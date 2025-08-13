@@ -1,6 +1,5 @@
 using AccountService.Model.Base;
 using AccountService.Service;
-using AccountService.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;

@@ -1,6 +1,6 @@
 ﻿using AccountService.Model.MongoModels;
 using MongoDB.Driver;
-namespace AccountService.Repository.Queries
+namespace AccountService.Repository
 {
     public class UserDataMongoRepository
     {
