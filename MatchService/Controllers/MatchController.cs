@@ -21,8 +21,8 @@ namespace MatchService.Controllers
         //private readonly ILogger<BlockDataController> _logger;
         //private IBlockDataService _blockDataService;
         [HttpPost]
-        [Route("/Match")]
-        public async Task<IActionResult> UserData([FromBody] SendLikeDTO likeDTO)
+        [Route("/matchs/SendUserLike")]
+        public async Task<IActionResult> SendUserLike([FromBody] SendLikeDTO likeDTO)
         {
             try
             {
