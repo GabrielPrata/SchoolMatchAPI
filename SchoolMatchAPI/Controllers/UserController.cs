@@ -48,7 +48,7 @@ namespace AccountService.Controllers
         }
 
         [HttpPost]
-        [Route("/users/data")]
+        [Route("/users/Data")]
         public async Task<IActionResult> UserData([FromBody] UserDataDTO dto)
         {
             try
@@ -78,9 +78,40 @@ namespace AccountService.Controllers
 
         }
 
+        [HttpPost]
+        [Route("/users/Login")]
+        public async Task<IActionResult> ValidateLogin([FromBody] UserLoginDTO dto)
+        {
+            try
+            {
+                var userData = await _userDataService.ValidateLogin(dto);
+                return Ok(userData);
+            }
+            catch (ArgumentException ex)
+            {
+                //TODO: poderia ser um catch
+                if (ex is ApiException apiEx)
+                {
+                    // Se é uma ApiException, trate-a de forma específica
+                    return StatusCode(apiEx.ErrorModel.StatusCode, apiEx.ErrorModel);
+                }
+                else if (ex is ArgumentException argEx)
+                {
+                    // Trate outras ArgumentExceptions de forma genérica
+                    return BadRequest(new ApiErrorModel(argEx.Message, 400));
+                }
+                else
+                {
+                    // Trate todas outras exceções não esperadas
+                    return StatusCode(500, new ApiErrorModel("An unexpected error occurred", 500));
+                }
+            }
+
+        }
+
         [Authorize]
         [HttpPut]
-        [Route("/users/data")]
+        [Route("/users/Data")]
         public async Task<IActionResult> UserDataPut([FromBody] UserDataDTO dto)
         {
             try

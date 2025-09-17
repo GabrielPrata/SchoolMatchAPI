@@ -4,6 +4,7 @@ namespace AccountService.Service
 {
     public interface IUserDataService
     {
+        Task<UserDataDTO> ValidateLogin(UserLoginDTO loginData);
         Task<UserDataDTO> GetUserDataById(int userId);
         Task SaveUserData(UserDataDTO userData);
         Task UpdateUserData(UserDataDTO userData);

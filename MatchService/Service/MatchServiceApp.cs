@@ -32,7 +32,7 @@ namespace MatchService.Service
                 return new LikeResponseDTO
                 {
                     IsMatch = true,
-                    Message = "Parabéns! É um match 🎉"
+                    Message = "Novo Match!"
                 };
 
             }
