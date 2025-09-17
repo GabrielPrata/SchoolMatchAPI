@@ -1,67 +1,152 @@
-﻿using AccountService.Service;
-using AccountService.Data.DTO;
-using AccountService.Repository;
-using Microsoft.Extensions.Options;
-using MimeKit;
-using MailKit.Net.Smtp;
-using MailKit.Security;
+﻿using AccountService.Data.DTO;
+using AccountService.Repository.Queries;
+using AccountService.Mappers;
+using AccountService.Model.MongoModels;
+using AccountService.Model.SqlModels;
 using AccountService.Model.Base;
+using MimeKit;
+using Microsoft.Extensions.Options;
+using MailKit.Net.Smtp;
 
-namespace AccountService.Services;
-
-public class UserDataService : IUserDataService
+namespace AccountService.Service
 {
-    private readonly UserRepository _userRepository;
-    private readonly EmailConfig _emailConfig;
-
-    public UserDataService(string sqlConnection, string mongoConnection, IOptions<EmailConfig> emailConfig)
+    public class UserDataService : IUserDataService
     {
-        _userRepository = new UserRepository(sqlConnection, mongoConnection);
-        _emailConfig = emailConfig.Value;
-    }
+        private readonly UserDataSqlRepository _userSqlRepository;
+        private readonly UserDataMongoRepository _userMongoRepository;
+        private readonly EmailConfig _emailConfig;
 
-    public async Task<UserDataDTO> GetUserDataById(int userId)
-    {
-        var data = await _userRepository.GetUserDataById(userId);
-        return data;
-    }
-
-    public async Task SaveUserData(UserDataDTO userData)
-    {
-        await _userRepository.SaveUserData(userData);
-    }
-
-    public async Task UpdateUserData(UserDataDTO userData)
-    {
-        //TODO: FINALIZAR A IMPLEMENTACAO CORRETA DO MÉTODO
-        await _userRepository.UpdateUserData(userData);
-    }
-
-    public async Task SaveEmailToVerify(string userEmail)
-    {
-        if (await _userRepository.SaveEmailToVerify(userEmail))
+        public UserDataService(string sqlConnection, string mongoConnection, IOptions<EmailConfig> emailConfig)
         {
-            SendVerificationEmail(userEmail);
+            _userSqlRepository = new UserDataSqlRepository(sqlConnection);
+            _userMongoRepository = new UserDataMongoRepository(mongoConnection);
+            _emailConfig = emailConfig.Value;
         }
 
-    }
-
-    public async Task<bool> CheckIfEmailIsVerified(string userEmail)
-    {
-       return await _userRepository.CheckIfEmailIsVerified(userEmail);
-    }
-
-    public async Task SendVerificationEmail(string userEmail)
-    {
-        try
+        public async Task<UserDataDTO> GetUserDataById(int userId)
         {
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress(_emailConfig.Remetente, _emailConfig.Email));
-            message.To.Add(MailboxAddress.Parse(userEmail));
-            message.Subject = "Salve! Vem clicar no link!";
-            var bodyBuilder = new BodyBuilder
+            try
             {
-                HtmlBody = $@"<!DOCTYPE html>
+                #region Recuperando os dados do SQL
+                var sqlModel = await _userSqlRepository.GetUserDataById(userId);
+                var mongoModel = await _userMongoRepository.GetUserById(userId);
+
+
+
+                if (sqlModel != null && mongoModel != null)
+                {
+                    var model = UserMapper.ToDto(sqlModel, mongoModel);
+                    return model;
+                }
+                #endregion
+
+                return null;
+            }
+            catch (ArgumentException e)
+            {
+                throw new ArgumentException(e.Message);
+            }
+        }
+
+        public async Task SaveUserData(UserDataDTO userData)
+        {
+            // TODO: separar a regra de negócio do repository:
+            // TODO: Aplicar unitOfWork - Commit Transactions, caso alguma dessas operações de erro, execute um rollback.
+            if (await _userSqlRepository.VerifyUserExist(userData.EmailUsuario))
+            {
+                var error = new ApiErrorModel("Este endereço de e-mail já está cadastrado em nosso sistema!", 409, Environment.StackTrace);
+                throw new ApiException(error);
+            }
+
+
+            SqlUserData sqlData = userData.ToSqlModel();
+            MongoUserData mongoData = userData.ToMongoModel();
+
+            int userId = await _userSqlRepository.SaveUserData(sqlData);
+
+            foreach (GenderDTO gender in sqlData.UsuarioPreferenciaGenero)
+            {
+                await _userSqlRepository.SaveUserGenreInterests(userId, gender.GenderId);
+            }
+
+            sqlData.BlocosUsario.Add(sqlData.BlocoPrincipal);
+            foreach (BlocksDTO block in sqlData.BlocosUsario)
+            {
+                await _userSqlRepository.SaveUserBlocks(userId, block.BlockId);
+            }
+            mongoData.IdUsuario = userId;
+            await _userMongoRepository.SaveUserData(mongoData);
+        }
+
+        public async Task UpdateUserData(UserDataDTO userData)
+        {
+            //TODO: FINALIZAR A IMPLEMENTACAO CORRETA DO MÉTODO
+            // TODO: separar a regra de negócio do repository:
+            // TODO: Aplicar unitOfWork - Commit Transactions, caso alguma dessas operações de erro, execute um rollback.
+            if (!await _userSqlRepository.VerifyUserExist(userData.EmailUsuario))
+            {
+                var error = new ApiErrorModel("Usuário não encontrado no sistema!", 409, Environment.StackTrace);
+                throw new ApiException(error);
+            }
+
+
+            SqlUserData sqlData = userData.ToSqlModel();
+            MongoUserData mongoData = userData.ToMongoModel();
+
+            int userId = await _userSqlRepository.SaveUserData(sqlData);
+
+            foreach (GenderDTO gender in sqlData.UsuarioPreferenciaGenero)
+            {
+                await _userSqlRepository.SaveUserGenreInterests(userId, gender.GenderId);
+            }
+
+            sqlData.BlocosUsario.Add(sqlData.BlocoPrincipal);
+            foreach (BlocksDTO block in sqlData.BlocosUsario)
+            {
+                await _userSqlRepository.SaveUserBlocks(userId, block.BlockId);
+            }
+            mongoData.IdUsuario = userId;
+            await _userMongoRepository.SaveUserData(mongoData);
+        }
+
+        public async Task SaveEmailToVerify(string userEmail)
+        {
+            //TODO: Criar classe static paa retornar as mensagens, Ex: ConstanteMensagens.EmailNaoCadastrado
+            if (await _userSqlRepository.CheckIfEmailIsVerified(userEmail))
+            {
+                // TODO: Criar Enum de StatusCode
+                var error = new ApiErrorModel("Este endereço de e-mail já está cadastrado em nosso sistema!", 409, Environment.StackTrace);
+                throw new ApiException(error);
+            }
+
+
+            //Verifico se o email ja foi cadastrado no banco de dados
+            if (await _userSqlRepository.CheckIfEmailVerifyIsPendent(userEmail))
+            {
+                //Se não estiver cadastrado, salvo ele no banco
+                await _userSqlRepository.SaveEmailToVerify(userEmail);
+            }
+
+            await SendVerificationEmail(userEmail);
+            
+        }
+
+        public async Task<bool> CheckIfEmailIsVerified(string userEmail)
+        {
+            return await _userSqlRepository.CheckIfEmailIsVerified(userEmail);
+        }
+
+        private async Task SendVerificationEmail(string userEmail)
+        {
+            try
+            {
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress(_emailConfig.Remetente, _emailConfig.Email));
+                message.To.Add(MailboxAddress.Parse(userEmail));
+                message.Subject = "Salve! Vem clicar no link!";
+                var bodyBuilder = new BodyBuilder
+                {
+                    HtmlBody = $@"<!DOCTYPE html>
                 <html lang=""en"">
                 <head>
                 <meta charset=""UTF-8"">
@@ -127,19 +212,20 @@ public class UserDataService : IUserDataService
                     </div>
                 </body>
                 </html>"
-            };
-            message.Body = bodyBuilder.ToMessageBody();
+                };
+                message.Body = bodyBuilder.ToMessageBody();
 
-            using var client = new SmtpClient();
-            await client.ConnectAsync(_emailConfig.SMTP, _emailConfig.Porta, true);
-            await client.AuthenticateAsync(_emailConfig.Email, _emailConfig.Senha);
-            await client.SendAsync(message);
-            await client.DisconnectAsync(true);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error sending email: " + ex.Message);
-            throw; // Consider logging this error instead of rethrowing it, depending on your error handling policy
+                using var client = new SmtpClient();
+                await client.ConnectAsync(_emailConfig.SMTP, _emailConfig.Porta, true);
+                await client.AuthenticateAsync(_emailConfig.Email, _emailConfig.Senha);
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error sending email: " + ex.Message);
+                throw; // Consider logging this error instead of rethrowing it, depending on your error handling policy
+            }
         }
     }
 }
