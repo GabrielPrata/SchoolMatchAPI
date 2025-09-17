@@ -32,7 +32,7 @@ namespace MatchService.Controllers
                 if (likeResponse.IsMatch)
                 {
                     //Melhorar esse retorno
-                    return Ok("Novo Match!");
+                    return Ok(likeResponse);
                 }
                 else
                 {
