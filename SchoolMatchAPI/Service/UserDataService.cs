@@ -48,6 +48,29 @@ namespace AccountService.Service
             }
         }
 
+        public async Task<UserDataDTO> ValidateLogin(UserLoginDTO loginData)
+        {
+            if (await _userSqlRepository.ValidateLogin(loginData))
+            {
+                try
+                {
+                    int userId = await _userSqlRepository.GetUserIdByEmail(loginData.Email);
+                    SqlUserData sqlUserData = await _userSqlRepository.GetUserDataById(userId);
+                    MongoUserData mongoUserData = await _userMongoRepository.GetUserById(userId);
+
+                    return UserMapper.ToDto(sqlUserData, mongoUserData);
+                }
+                catch (Exception ex)
+                {
+                    throw new ApiException(new ApiErrorModel(message: "Um erro inesperado aconteceu:", statusCode: 500, stackTrace: ex.StackTrace));
+                }
+            }
+            else
+            {
+                throw new ApiException(new ApiErrorModel(message: "Nenhum usuário encontrado com essas credenciais!", statusCode: 404));
+            }
+        }
+
         public async Task SaveUserData(UserDataDTO userData)
         {
             // TODO: separar a regra de negócio do repository:
@@ -128,7 +151,7 @@ namespace AccountService.Service
             }
 
             await SendVerificationEmail(userEmail);
-            
+
         }
 
         public async Task<bool> CheckIfEmailIsVerified(string userEmail)

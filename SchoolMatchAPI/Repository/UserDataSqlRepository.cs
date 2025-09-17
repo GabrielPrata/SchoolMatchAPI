@@ -1,4 +1,5 @@
-﻿using AccountService.Model.SqlModels;
+﻿using AccountService.Data.DTO;
+using AccountService.Model.SqlModels;
 using Dapper;
 using Microsoft.Data.SqlClient;
 
@@ -23,6 +24,28 @@ namespace AccountService.Repository
                 return _connection;
             }
             return _connection;
+        }
+
+        public async Task<bool> ValidateLogin(UserLoginDTO loginData)
+        {
+            const string query = @"
+                SELECT COUNT(*) FROM USUARIOS WHERE EMAILUSUARIO = @Email AND SENHAUSUARIO = @Senha;  
+            ";
+
+            await using var conn = GetOpenConnection();
+            var count = await conn.ExecuteScalarAsync<int>(query, new { Email = loginData.Email, Senha = loginData.Password });
+
+            return count > 0;
+        }
+
+        public async Task<int> GetUserIdByEmail(string userEmail)
+        {
+            const string query = @"
+                SELECT IDUSUARIO FROM USUARIOS WHERE EMAILUSUARIO = @Email;  
+            ";
+
+            await using var conn = GetOpenConnection();
+            return await conn.ExecuteScalarAsync<int>(query, new { Email = userEmail });
         }
 
 

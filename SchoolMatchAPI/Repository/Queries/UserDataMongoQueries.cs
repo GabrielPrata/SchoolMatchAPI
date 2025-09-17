@@ -16,15 +16,9 @@ namespace AccountService.Repository.Queries
 
         public async Task<MongoUserData?> GetUserById(int userId)
         {
-            try
-            {
-                var filter = Builders<MongoUserData>.Filter.Eq(u => u.IdUsuario, userId);
-                return await _userCollection.Find(filter).FirstOrDefaultAsync();
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
+            var filter = Builders<MongoUserData>.Filter.Eq(u => u.IdUsuario, userId);
+            return await _userCollection.Find(filter).FirstOrDefaultAsync();
+            
         }
 
         public async Task SaveUserData(MongoUserData data)
