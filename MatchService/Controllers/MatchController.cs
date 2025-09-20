@@ -1,6 +1,7 @@
 ﻿using MatchService.Data.DTO;
 using MatchService.Model.Base;
 using MatchService.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MatchService.Controllers
@@ -21,6 +22,7 @@ namespace MatchService.Controllers
         //private readonly ILogger<BlockDataController> _logger;
         //private IBlockDataService _blockDataService;
         [HttpPost]
+        [Authorize]
         [Route("/matchs/SendUserLike")]
         public async Task<IActionResult> SendUserLike([FromBody] SendLikeDTO likeDTO)
         {

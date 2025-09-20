@@ -17,13 +17,14 @@ namespace AccountService
             // Obter as strings de conexão do arquivo de configuração
             var sqlConnection = builder.Configuration["AppConfiguration:ConnectionStringSQL"];
             var mongoConnection = builder.Configuration["AppConfiguration:ConnectionStringMongo"];
+            var identityUrl = builder.Configuration["AppConfiguration:IdentityUrl"];
 
             // Add services to the container.
             builder.Services.Configure<EmailConfig>(builder.Configuration.GetSection("EmailNaoResponda"));
             builder.Services.AddScoped<IUserDataService>(provider =>
             {
                 var emailConfig = provider.GetRequiredService<IOptions<EmailConfig>>();
-                return new UserDataService(sqlConnection, mongoConnection, emailConfig);
+                return new UserDataService(sqlConnection, mongoConnection, emailConfig, identityUrl);
             });
 
 

@@ -21,9 +21,9 @@ namespace AccountService.Controllers
             _userDataService = userDataService;
         }
 
-        //TODO: Adicionar autenticacao nesta rota após o identity service ser finalizado
         [HttpGet]
-        [Route("/users/data/{userId:int}")]
+        [Authorize]
+        [Route("/users/Data/{userId:int}")]
         public async Task<IActionResult> UserData([FromRoute] int userId)
         {
             try
@@ -85,6 +85,7 @@ namespace AccountService.Controllers
             try
             {
                 var userData = await _userDataService.ValidateLogin(dto);
+                //adicionar o token para retornar
                 return Ok(userData);
             }
             catch (ArgumentException ex)
@@ -142,9 +143,6 @@ namespace AccountService.Controllers
 
         }
 
-        //TODO: V maiusculo fugiu do padrão
-        //TODO:  analisar outro nome para a URL
-        //TODO:  Refatorar para colocar as funcionalidades de email em outra controller, service, repository e etc
         [HttpPost]
         [Route("/users/data/VerifyEmail")]
         public async Task<IActionResult> SaveEmailToVerify(string userEmail)

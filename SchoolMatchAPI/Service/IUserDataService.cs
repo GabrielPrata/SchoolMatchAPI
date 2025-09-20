@@ -10,6 +10,7 @@ namespace AccountService.Service
         Task UpdateUserData(UserDataDTO userData);
         Task SaveEmailToVerify(string userEmail);
         Task<bool> CheckIfEmailIsVerified(string userEmail);
+        Task<string> GetIdentityToken(int userId, string userMail, string userName);
 
 
         //Task<SQLUserDataDTO> FindUserSqlById(string userId);

@@ -29,5 +29,6 @@ namespace AccountService.Data.DTO
         public DateTime UsuarioEditedAt { get; set; }
         public BlocksDTO BlocoPrincipal { get; set; }
         public List<BlocksDTO> BlocosUsuario { get; set; }
+        public string? UserToken { get; set; }
     }
 }

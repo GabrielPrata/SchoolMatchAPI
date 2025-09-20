@@ -7,6 +7,7 @@ using AccountService.Model.Base;
 using MimeKit;
 using Microsoft.Extensions.Options;
 using MailKit.Net.Smtp;
+using System.Text.Json;
 
 namespace AccountService.Service
 {
@@ -15,12 +16,14 @@ namespace AccountService.Service
         private readonly UserDataSqlRepository _userSqlRepository;
         private readonly UserDataMongoRepository _userMongoRepository;
         private readonly EmailConfig _emailConfig;
+        private readonly string _identityUrl;
 
-        public UserDataService(string sqlConnection, string mongoConnection, IOptions<EmailConfig> emailConfig)
+        public UserDataService(string sqlConnection, string mongoConnection, IOptions<EmailConfig> emailConfig, string identityUrl)
         {
             _userSqlRepository = new UserDataSqlRepository(sqlConnection);
             _userMongoRepository = new UserDataMongoRepository(mongoConnection);
             _emailConfig = emailConfig.Value;
+            _identityUrl = identityUrl;
         }
 
         public async Task<UserDataDTO> GetUserDataById(int userId)
@@ -58,7 +61,13 @@ namespace AccountService.Service
                     SqlUserData sqlUserData = await _userSqlRepository.GetUserDataById(userId);
                     MongoUserData mongoUserData = await _userMongoRepository.GetUserById(userId);
 
-                    return UserMapper.ToDto(sqlUserData, mongoUserData);
+                    UserDataDTO userData = UserMapper.ToDto(sqlUserData, mongoUserData);
+
+                    string userToken = await GetIdentityToken(userId, sqlUserData.EmailUsuario, sqlUserData.NomeUsuario);
+
+                    userData.UserToken = userToken; 
+
+                    return userData;
                 }
                 catch (Exception ex)
                 {
@@ -159,6 +168,8 @@ namespace AccountService.Service
             return await _userSqlRepository.CheckIfEmailIsVerified(userEmail);
         }
 
+
+
         private async Task SendVerificationEmail(string userEmail)
         {
             try
@@ -250,5 +261,43 @@ namespace AccountService.Service
                 throw; // Consider logging this error instead of rethrowing it, depending on your error handling policy
             }
         }
+
+        public async Task<string> GetIdentityToken(int userId, string userMail, string userName)
+        {
+            using var client = new HttpClient();
+
+            var pairs = new List<KeyValuePair<string, string>> {
+                new("grant_type","external"),
+                new("client_id","school_match"),
+                new("client_secret","*a%ehlvfl_gvx28kp5@a8i&5zvt+a#bh$73_oimp!n!_cen0a("),
+                new("scope","read write openid profile"),
+                new("user_id", userId.ToString()),
+                new("email", userMail),
+                new("name",userName)
+            };
+
+            var content = new FormUrlEncodedContent(pairs);
+            var res = await client.PostAsync(_identityUrl, content);
+
+            if (!res.IsSuccessStatusCode)
+            {
+                // você pode lançar exception ou retornar null, dependendo do seu caso
+                var error = await res.Content.ReadAsStringAsync();
+                throw new Exception($"Erro ao obter token: {res.StatusCode} - {error}");
+            }
+
+            var json = await res.Content.ReadAsStringAsync();
+
+            // Desserializa direto para o DTO
+            var options = new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            };
+
+            var dto = JsonSerializer.Deserialize<IdentityResponseDTO>(json, options);
+
+            return dto.access_token;
+        }
+
     }
 }
