@@ -1,6 +1,4 @@
-﻿using AccountService.Model.MongoModels;
-
-namespace AccountService.Data.DTO
+﻿namespace SearchService.Data.DTO.Profile
 {
     public class UserDataDTO
     {

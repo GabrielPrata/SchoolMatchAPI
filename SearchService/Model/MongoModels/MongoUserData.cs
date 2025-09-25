@@ -1,9 +1,8 @@
-﻿using AccountService.Model.Base;
-using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
-using AccountService.Data.DTO;
+using SearchService.Data.DTO.Profile;
 
-namespace AccountService.Model.MongoModels
+namespace SearchService.Model.MongoModels
 {
     public class MongoUserData
     {

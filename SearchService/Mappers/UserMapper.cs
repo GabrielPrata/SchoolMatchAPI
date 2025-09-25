@@ -1,8 +1,10 @@
-﻿using AccountService.Data.DTO;
-using AccountService.Model.MongoModels;
-using AccountService.Model.SqlModels;
+﻿
 
-namespace AccountService.Mappers
+using SearchService.Data.DTO.Profile;
+using SearchService.Model.MongoModels;
+using SearchService.Model.SqlModels;
+
+namespace SearchService.Mappers
 {
     internal static class UserMapper
     {
@@ -16,8 +18,6 @@ namespace AccountService.Mappers
                 Nome = sqlData.NomeUsuario,
                 Sobrenome = sqlData.SobrenomeUsuario,
                 EmailUsuario = sqlData.EmailUsuario,
-                SenhaUsuario = sqlData.SenhaUsuario,
-                UsuarioVerificado = sqlData.UsuarioVerificado,
                 Curso = new CourseDTO(sqlData.CursoUsuario, mongoData.Curso.CourseName),
                 Genero = new GenderDTO(sqlData.UsuarioGenero, mongoData.Genero.GenderName),
                 UsuarioPreferencia = sqlData.UsuarioPreferenciaGenero,
@@ -37,6 +37,7 @@ namespace AccountService.Mappers
                
                 Interesses = mongoData.Interesses,
                 SpotifyMusicData = mongoData.SpotifyMusicData,
+                UserBase64Images = mongoData.UserBase64Images,
             };
 
             return model;
@@ -50,8 +51,6 @@ namespace AccountService.Mappers
                 NomeUsuario = dto.Nome,
                 SobrenomeUsuario = dto.Sobrenome,
                 EmailUsuario = dto.EmailUsuario,
-                SenhaUsuario = dto.SenhaUsuario,
-                UsuarioVerificado = dto.UsuarioVerificado,
                 CursoUsuario = dto.Curso.CourseId,
                 UsuarioGenero = dto.Genero.GenderId,
                 UsuarioPreferenciaGenero = dto.UsuarioPreferencia,
