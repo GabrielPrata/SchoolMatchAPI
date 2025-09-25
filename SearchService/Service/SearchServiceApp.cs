@@ -1,4 +1,5 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Data.SqlTypes;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Options;
 using SearchService.Data.DTO;
 using SearchService.Data.DTO.Profile;
@@ -36,12 +37,16 @@ namespace SearchService.Service
 
             foreach (SqlUserData sqlUserData in sqlData)
             {
+                IEnumerable<SqlBlocks> userBlocks = await _sqlRepository.GetUserBlocksById(sqlUserData.IdUsuario);
+                IEnumerable<SqlPreferences> userPreferences = await _sqlRepository.GetUserPreferencesById(sqlUserData.IdUsuario);
+
+                sqlUserData.BlocosUsario = userBlocks.Where(b => b.BlocoPrincipal == false).Select(b => BlocksMapper.ToDto(b)).ToList();
+                sqlUserData.BlocoPrincipal = userBlocks.Where(b => b.BlocoPrincipal == true).Select(b => BlocksMapper.ToDto(b)).FirstOrDefault();
+                sqlUserData.UsuarioPreferenciaGenero = userPreferences.Select(PreferencesMapper.ToDto).ToList();
                 MongoUserData mongoData = await _mongoRepository.GetUserById(sqlUserData.IdUsuario);
 
                 usersData.Add(UserMapper.ToDto(sqlUserData, mongoData));
             }
-
-            
 
             return usersData;
 

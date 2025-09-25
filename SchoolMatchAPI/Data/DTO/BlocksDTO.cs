@@ -8,6 +8,8 @@
             BlockName = blockName;
         }
 
+        public BlocksDTO() { }
+
         public int BlockId { get; set; }
         public string BlockName { get; set; }
     }

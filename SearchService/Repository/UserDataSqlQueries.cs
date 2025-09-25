@@ -30,17 +30,48 @@ namespace SearchService.Repository
 
         public async Task<IEnumerable<SqlUserData>> DefaultSearch(UserPreferencesDTO dto)
         {
-            const string query = "SELECT IDUSUARIO, NOMEUSUARIO, SOBRENOMEUSUARIO, EMAILUSUARIO, CURSOUSUARIO, USUARIOGENERO FROM USUARIOS WHERE USUARIOGENERO = @userPreference";
+            const string query = "SELECT IDUSUARIO, NOMEUSUARIO, SOBRENOMEUSUARIO, EMAILUSUARIO, CURSOUSUARIO, USUARIOGENERO FROM USUARIOS WHERE USUARIOGENERO = @userPreference AND IDUSUARIO != @userId";
 
             await using var conn = GetOpenConnection();
 
             var users = await conn.QueryAsync<SqlUserData>(
                 query,
-                new { userPreference = dto.UserLikeFind }
+                new { userPreference = dto.UserLikeFind, userId = dto.UserId }
             );
 
             return users;
         }
+
+        public async Task<IEnumerable<SqlBlocks>> GetUserBlocksById(int userId)
+        {
+            const string query = @"SELECT
+                bu.IDBLOCOUSUARIO,
+                bu.IDBLOCO,
+                bu.BLOCOPRINCIPAL,
+                b.NOMEBLOCO
+            FROM BLOCOSUSUARIO bu
+            LEFT JOIN BLOCOS b ON b.IDBLOCO = bu.IDBLOCO
+            WHERE bu.IDUSUARIO = @id;";
+
+            await using var conn = GetOpenConnection();
+            var userBlocks = await conn.QueryAsync<SqlBlocks>(query, new { id = userId });
+            return userBlocks;
+        }
+
+        public async Task<IEnumerable<SqlPreferences>> GetUserPreferencesById(int userId)
+        {
+            const string query = @"SELECT 
+                g.IDGENERO   AS GenderId,
+                g.NOMEGENERO AS GenderName
+            FROM USUARIOINTERESSEGENERO uig
+            JOIN GENEROS g ON g.IDGENERO = uig.IDGENERO
+            WHERE uig.IDUSUARIO = @id;";
+
+            await using var conn = GetOpenConnection();
+            var userPreferences = await conn.QueryAsync<SqlPreferences>(query, new { id = userId });
+            return userPreferences;
+        }
+
 
 
 

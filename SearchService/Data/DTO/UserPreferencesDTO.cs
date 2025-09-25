@@ -3,5 +3,6 @@
     public class UserPreferencesDTO
     {
         public int UserLikeFind { get; set; }
+        public int UserId { get; set; }
     }
 }

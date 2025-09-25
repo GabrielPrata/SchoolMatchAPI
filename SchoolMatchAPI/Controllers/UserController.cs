@@ -22,7 +22,7 @@ namespace AccountService.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         [Route("/users/Data/{userId:int}")]
         public async Task<IActionResult> UserData([FromRoute] int userId)
         {

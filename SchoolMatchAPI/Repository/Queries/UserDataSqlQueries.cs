@@ -27,14 +27,55 @@ namespace AccountService.Repository.Queries
         }
 
 
-        public async Task<SqlUserData?> GetUserDataById(int userId)
+        public async Task<SqlUserData> GetUserDataById(int userId)
         {
-            const string query = "SELECT * FROM USUARIOS WHERE IDUSUARIO= @id";
+            const string query = @"SELECT 
+                u.IDUSUARIO      AS IdUsuario,
+                u.NOMEUSUARIO    AS NomeUsuario,
+                u.SOBRENOMEUSUARIO AS SobrenomeUsuario,
+                u.EMAILUSUARIO   AS EmailUsuario,
+                u.SENHAUSUARIO   AS SenhaUsuario,
+                u.USUARIOVERIFICADO AS UsuarioVerificado,
+                u.CURSOUSUARIO   AS CursoUsuario,
+                u.USUARIOGENERO  AS UsuarioGenero
+            FROM USUARIOS u
+            WHERE u.IDUSUARIO = @id;";
 
             await using var conn = GetOpenConnection();
             var userData = await conn.QuerySingleOrDefaultAsync<SqlUserData?>(query, new { id = userId });
             return userData;
         }
+
+        public async Task<IEnumerable<SqlBlocks>> GetUserBlocksById(int userId)
+        {
+            const string query = @"SELECT
+                bu.IDBLOCOUSUARIO,
+                bu.IDBLOCO,
+                bu.BLOCOPRINCIPAL,
+                b.NOMEBLOCO
+            FROM BLOCOSUSUARIO bu
+            LEFT JOIN BLOCOS b ON b.IDBLOCO = bu.IDBLOCO
+            WHERE bu.IDUSUARIO = @id;";
+
+            await using var conn = GetOpenConnection();
+            var userBlocks = await conn.QueryAsync<SqlBlocks>(query, new { id = userId });
+            return userBlocks;
+        }
+
+        public async Task<IEnumerable<SqlPreferences>> GetUserPreferencesById(int userId)
+        {
+            const string query = @"SELECT 
+                g.IDGENERO   AS GenderId,
+                g.NOMEGENERO AS GenderName
+            FROM USUARIOINTERESSEGENERO uig
+            JOIN GENEROS g ON g.IDGENERO = uig.IDGENERO
+            WHERE uig.IDUSUARIO = @id;";
+
+            await using var conn = GetOpenConnection();
+            var userPreferences = await conn.QueryAsync<SqlPreferences>(query, new { id = userId });
+            return userPreferences;
+        }
+
 
         public async Task<int> SaveUserData(SqlUserData data)
         {

@@ -32,6 +32,13 @@ namespace AccountService.Service
             {
                 #region Recuperando os dados do SQL
                 var sqlModel = await _userSqlRepository.GetUserDataById(userId);
+                IEnumerable<SqlBlocks> userBlocks = await _userSqlRepository.GetUserBlocksById(userId);
+                IEnumerable<SqlPreferences> userPreferences = await _userSqlRepository.GetUserPreferencesById(userId);
+
+                sqlModel.BlocosUsario = userBlocks.Where(b => b.BlocoPrincipal == false).Select(b => BlocksMapper.ToDto(b)).ToList();
+                sqlModel.BlocoPrincipal = userBlocks.Where(b => b.BlocoPrincipal == true).Select(b => BlocksMapper.ToDto(b)).FirstOrDefault();
+                sqlModel.UsuarioPreferenciaGenero = userPreferences.Select(PreferencesMapper.ToDto).ToList();
+
                 var mongoModel = await _userMongoRepository.GetUserById(userId);
 
 
@@ -59,6 +66,14 @@ namespace AccountService.Service
                 {
                     int userId = await _userSqlRepository.GetUserIdByEmail(loginData.Email);
                     SqlUserData sqlUserData = await _userSqlRepository.GetUserDataById(userId);
+                    IEnumerable<SqlBlocks> userBlocks = await _userSqlRepository.GetUserBlocksById(userId);
+                    IEnumerable<SqlPreferences> userPreferences = await _userSqlRepository.GetUserPreferencesById(userId);
+
+                    sqlUserData.BlocosUsario = userBlocks.Where(b => b.BlocoPrincipal == false).Select(b => BlocksMapper.ToDto(b)).ToList();
+                    sqlUserData.BlocoPrincipal = userBlocks.Where(b => b.BlocoPrincipal == true).Select(b => BlocksMapper.ToDto(b)).FirstOrDefault();
+                    sqlUserData.UsuarioPreferenciaGenero = userPreferences.Select(PreferencesMapper.ToDto).ToList();          
+
+
                     MongoUserData mongoUserData = await _userMongoRepository.GetUserById(userId);
 
                     UserDataDTO userData = UserMapper.ToDto(sqlUserData, mongoUserData);

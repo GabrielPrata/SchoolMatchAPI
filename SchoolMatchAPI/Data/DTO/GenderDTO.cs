@@ -8,6 +8,7 @@
             GenderName = genderName;
         }
 
+        public GenderDTO() { }
         public int GenderId { get; set; }
         public string GenderName { get; set; }
     }
