@@ -30,13 +30,22 @@ namespace SearchService.Repository
 
         public async Task<IEnumerable<SqlUserData>> DefaultSearch(UserPreferencesDTO dto)
         {
-            const string query = "SELECT IDUSUARIO, NOMEUSUARIO, SOBRENOMEUSUARIO, EMAILUSUARIO, CURSOUSUARIO, USUARIOGENERO FROM USUARIOS WHERE USUARIOGENERO = @userPreference AND IDUSUARIO != @userId";
+            const string query = @"SELECT 
+                                    IDUSUARIO, 
+                                    NOMEUSUARIO, 
+                                    SOBRENOMEUSUARIO, 
+                                    EMAILUSUARIO, 
+                                    CURSOUSUARIO, 
+                                    USUARIOGENERO 
+                                 FROM USUARIOS  
+                                 WHERE USUARIOGENERO IN @UserLikeFind  
+                                 AND IDUSUARIO != @UserId";
 
             await using var conn = GetOpenConnection();
 
             var users = await conn.QueryAsync<SqlUserData>(
                 query,
-                new { userPreference = dto.UserLikeFind, userId = dto.UserId }
+                new { UserLikeFind = dto.UserLikeFind, userId = dto.UserId }
             );
 
             return users;
