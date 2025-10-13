@@ -23,7 +23,7 @@ namespace SearchService.Controllers
         //private readonly ILogger<BlockDataController> _logger;
         //private IBlockDataService _blockDataService;
         [HttpPost]
-        //[Authorize]
+        [Authorize]
         [Route("/search/DefaultSearch")]
         public async Task<IActionResult> DefaultSearch([FromBody] UserPreferencesDTO dto)
         {

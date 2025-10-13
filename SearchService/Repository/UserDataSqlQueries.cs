@@ -30,16 +30,33 @@ namespace SearchService.Repository
 
         public async Task<IEnumerable<SqlUserData>> DefaultSearch(UserPreferencesDTO dto)
         {
-            const string query = @"SELECT 
-                                    IDUSUARIO, 
-                                    NOMEUSUARIO, 
-                                    SOBRENOMEUSUARIO, 
-                                    EMAILUSUARIO, 
-                                    CURSOUSUARIO, 
-                                    USUARIOGENERO 
-                                 FROM USUARIOS  
-                                 WHERE USUARIOGENERO IN @UserLikeFind  
-                                 AND IDUSUARIO != @UserId";
+            const string query = @"
+                       WITH Bloqueados AS (
+                      -- já curti
+                      SELECT M.USUARIODESTINATARIO AS ID
+                      FROM dbo.[MATCH] M
+                      WHERE M.USUARIOREMETENTE = @UserId
+                        AND M.USUARIOREMETENTEACAO = 1
+
+                      UNION
+
+                      -- já é match mútuo (qualquer direção)
+                      SELECT CASE WHEN M.USUARIOREMETENTE = @UserId
+                                  THEN M.USUARIODESTINATARIO ELSE M.USUARIOREMETENTE END AS ID
+                      FROM dbo.[MATCH] M
+                      WHERE (M.USUARIOREMETENTE = @UserId OR M.USUARIODESTINATARIO = @UserId)
+                        AND M.USUARIOREMETENTEACAO = 1
+                        AND M.USUARIODESTINATARIOACAO = 1
+                    )
+                    SELECT
+                      U.IDUSUARIO, U.NOMEUSUARIO, U.SOBRENOMEUSUARIO,
+                      U.EMAILUSUARIO, U.CURSOUSUARIO, U.USUARIOGENERO
+                    FROM dbo.USUARIOS U
+                    LEFT JOIN Bloqueados B ON B.ID = U.IDUSUARIO
+                    WHERE U.USUARIOGENERO IN @UserLikeFind
+                      AND U.IDUSUARIO <> @UserId
+                      AND B.ID IS NULL;
+                    ";
 
             await using var conn = GetOpenConnection();
 
