@@ -1,4 +1,5 @@
 ﻿using MatchService.Data.DTO;
+using MatchService.Model.SqlModels;
 
 namespace MatchService.Repository
 {
@@ -10,5 +11,6 @@ namespace MatchService.Repository
         Task UpdateUserLikeBySender(SendLikeDTO likeDTO);
         Task<bool> VerifyIfRegisterExist(SendLikeDTO likeDTO);
         Task<bool> DoUsersExist(SendLikeDTO likeDTO);
+        Task<IEnumerable<SqlUserData>> GetUserMatchs(int senderUserId);
     }
 }

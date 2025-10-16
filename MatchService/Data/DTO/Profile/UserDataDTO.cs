@@ -1,0 +1,30 @@
+﻿namespace MatchService.Data.DTO.Profile
+{
+    public class UserDataDTO
+    {
+        // Campos do MongoUserDataDTO
+        public string? MongoId { get; set; }
+        public int? IdUsuario { get; set; }
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public SexualityDTO Sexualidade { get; set; }
+        public string Bio { get; set; }
+        public DateTime DataNascimento { get; set; }
+        public string Cidade { get; set; }
+        public CourseDurationDTO Semestre { get; set; }
+        public UserAboutDTO UserAbout { get; set; }
+        public List<InterestsDTO> Interesses { get; set; }
+        public SpotifyMusicModel SpotifyMusicData { get; set; }
+        public List<string> UserBase64Images { get; set; }
+
+        // Campos do SQLUserDataDTO
+        public string EmailUsuario { get; set; }
+        public bool UsuarioVerificado { get; set; }
+        public CourseDTO Curso { get; set; }
+        public GenderDTO Genero { get; set; }
+        public DateTime UsuarioCreatedAt { get; set; }
+        public DateTime UsuarioEditedAt { get; set; }
+        public BlocksDTO BlocoPrincipal { get; set; }
+        public List<BlocksDTO> BlocosUsuario { get; set; }
+    }
+}

@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 var sqlConnection = builder.Configuration["AppConfiguration:ConnectionStringSQL"];
+var mongoConnection = builder.Configuration["AppConfiguration:ConnectionStringMongo"];
 
 builder.Services.AddSingleton<SqlConnection>(provider =>
 {
@@ -16,7 +17,7 @@ builder.Services.AddSingleton<SqlConnection>(provider =>
 builder.Services.AddScoped<IMatchService>(provider =>
 {
     var sqlConnection = provider.GetRequiredService<SqlConnection>();
-    return new MatchServiceApp(sqlConnection);
+    return new MatchServiceApp(sqlConnection, mongoConnection);
 });
 
 builder.Services.AddControllers();

@@ -1,4 +1,5 @@
 ﻿using MatchService.Data.DTO;
+using MatchService.Data.DTO.Profile;
 using MatchService.Model.Base;
 using MatchService.Service;
 using Microsoft.AspNetCore.Authorization;
@@ -40,6 +41,30 @@ namespace MatchService.Controllers
                 {
                     return NoContent();
                 }
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new ApiErrorModel(ex.Message, ex.StackTrace));
+            }
+
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("/matchs/GetUserMatches/{userId}")]
+        public async Task<IActionResult> GetUserMatches([FromRoute] int userId)
+        {
+            try
+            {
+
+                List<UserDataDTO> userMatches = await _matchService.GetUserMatches(userId);
+
+                return Ok(userMatches);
+
+            }
+            catch (ApiException ex)
+            {
+                return StatusCode(ex.ErrorModel.StatusCode, new { ex.ErrorModel.StackTrace, ex.ErrorModel.Message });
             }
             catch (ArgumentException ex)
             {

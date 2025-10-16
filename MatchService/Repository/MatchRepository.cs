@@ -1,6 +1,7 @@
 ﻿using System.Data.Common;
 using Dapper;
 using MatchService.Data.DTO;
+using MatchService.Model.SqlModels;
 using Microsoft.Data.SqlClient;
 
 namespace MatchService.Repository
@@ -138,7 +139,32 @@ namespace MatchService.Repository
             return count == 2;
         }
 
+        public async Task<IEnumerable<SqlUserData>> GetUserMatchs(int senderUserId)
+        {
+            const string query = @"
+                SELECT DISTINCT
+                    u.IDUSUARIO,
+                    u.NOMEUSUARIO,
+                    u.SOBRENOMEUSUARIO,
+                    u.EMAILUSUARIO,
+                    u.CURSOUSUARIO,
+                    u.USUARIOGENERO
+                FROM dbo.USUARIOS u
+                WHERE u.IDUSUARIO <> @SenderUserId
+                  AND EXISTS (
+                        SELECT 1
+                        FROM dbo.[MATCH] m
+                        WHERE m.USUARIOREMETENTEACAO = 1
+                          AND m.USUARIODESTINATARIOACAO = 1
+                          AND (
+                                (m.USUARIOREMETENTE   = @SenderUserId AND m.USUARIODESTINATARIO = u.IDUSUARIO) OR
+                                (m.USUARIODESTINATARIO = @SenderUserId AND m.USUARIOREMETENTE   = u.IDUSUARIO)
+                              )
+                  );";
 
+            var userMatchs = await _connection.QueryAsync<SqlUserData>(query, new { SenderUserId = senderUserId });
 
+            return userMatchs;
+        }
     }
 }
