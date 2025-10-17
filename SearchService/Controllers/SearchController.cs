@@ -44,5 +44,28 @@ namespace SearchService.Controllers
             }
 
         }
+
+        [HttpPost]
+        [Authorize]
+        [Route("/search/SearchByCourseAndBlock")]
+        public async Task<IActionResult> SearchByCourseAndBlock([FromBody] UserSearchDTO dto)
+        {
+            try
+            {
+                List<UserDataDTO> usersFinded = await _service.SearchByCourseAndBlock(dto);
+
+                return Ok(usersFinded);
+
+            }
+            catch (ApiException ex)
+            {
+                return StatusCode(ex.ErrorModel.StatusCode, new {ex.ErrorModel.StackTrace, ex.ErrorModel.Message} );
+            }
+            catch(ArgumentException ex)
+            {
+                return BadRequest(new ApiErrorModel(ex.Message, ex.StackTrace));
+            }
+
+        }
     }
 }

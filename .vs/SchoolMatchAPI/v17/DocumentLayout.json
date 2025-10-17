@@ -3,48 +3,50 @@
   "WorkspaceRootPath": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\11773c5e470c2a776d8c72588391a0cc1dd783f2566f489acb6308428d4adb42\\DeveloperExceptionPageMiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\mappers\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\mappers\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\2943b01cc009811d3f2c3c280c457f91d55b7d6e2b61b363d895535f69ffa9e5\\EndpointRoutingMiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\repository\\mongo\\userdatamongoqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\repository\\mongo\\userdatamongoqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\a89547de1df6c78131e5a454167f0936ed65275a025f62cf50c6b0af9b1bb9f3\\EndpointMiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\service\\imatchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\service\\imatchservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\21859c132d07f728e08c4c05f2840353e0149b97abfab2126ce002cb34542669\\ResourceInvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\data\\dto\\profile\\userdatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\data\\dto\\profile\\userdatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\f4afc3a88e25fb070f72b4a8058cd7e207766a7e6982c00e0931b159fe6558b6\\ControllerActionInvoker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\repository\\matchrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\repository\\matchrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\9b3ad1b0210900d54109a6943f3272cf3aa49bf8701f46c099b89a5d12061506\\ControllerBinderDelegateProvider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\service\\matchserviceapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\service\\matchserviceapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\29f62c5153b7ca4099378c87e8eafa4cefbcef4b1c2db5416786d4389a71221f\\ParameterBinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\repository\\imatchrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\repository\\imatchrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\79b06d87d0c7aefff84e49549da7c671ac5893e3896a82869beb632af0fc359d\\BodyModelBinder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\5c7f7f92c0d25b2fa422656b1b6456c98e193d24b46b2c04ea03f4e23bf9cbdf\\SystemTextJsonInputFormatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\model\\sqlmodels\\sqluserdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\model\\sqlmodels\\sqluserdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\c09d8586b5209c4c2e2bccdd9ecbecb5838547098299787088a2a8f90ae3e503\\ActionMethodExecutor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A083627C-E323-4F9F-A648-24FCA231A3C2}|SearchService\\SearchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\searchservice\\service\\searchserviceapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A083627C-E323-4F9F-A648-24FCA231A3C2}|SearchService\\SearchService.csproj|solutionrelative:searchservice\\service\\searchserviceapp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A083627C-E323-4F9F-A648-24FCA231A3C2}|SearchService\\SearchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\searchservice\\repository\\userdatasqlqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A083627C-E323-4F9F-A648-24FCA231A3C2}|SearchService\\SearchService.csproj|solutionrelative:searchservice\\repository\\userdatasqlqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A083627C-E323-4F9F-A648-24FCA231A3C2}|SearchService\\SearchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\searchservice\\data\\dto\\usersearchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A083627C-E323-4F9F-A648-24FCA231A3C2}|SearchService\\SearchService.csproj|solutionrelative:searchservice\\data\\dto\\usersearchdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\appdataservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E3B0C86B-CDD1-4F21-9708-C010866B4402}|AppDataService\\AppDataService.csproj|solutionrelative:appdataservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,140 +56,189 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserDataDTO.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Data\\DTO\\Profile\\UserDataDTO.cs",
-              "RelativeDocumentMoniker": "MatchService\\Data\\DTO\\Profile\\UserDataDTO.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Data\\DTO\\Profile\\UserDataDTO.cs",
-              "RelativeToolTip": "MatchService\\Data\\DTO\\Profile\\UserDataDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA6AAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "ControllerBinderDelegateProvider.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\9b3ad1b0210900d54109a6943f3272cf3aa49bf8701f46c099b89a5d12061506\\ControllerBinderDelegateProvider.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\9b3ad1b0210900d54109a6943f3272cf3aa49bf8701f46c099b89a5d12061506\\ControllerBinderDelegateProvider.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\9b3ad1b0210900d54109a6943f3272cf3aa49bf8701f46c099b89a5d12061506\\ControllerBinderDelegateProvider.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\9b3ad1b0210900d54109a6943f3272cf3aa49bf8701f46c099b89a5d12061506\\ControllerBinderDelegateProvider.cs [Somente Leitura]",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAwEcAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T00:15:28.642Z"
+              "WhenOpened": "2025-10-17T00:58:51.44Z",
+              "EditorCaption": " [Somente Leitura]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ControllerActionInvoker.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\f4afc3a88e25fb070f72b4a8058cd7e207766a7e6982c00e0931b159fe6558b6\\ControllerActionInvoker.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\f4afc3a88e25fb070f72b4a8058cd7e207766a7e6982c00e0931b159fe6558b6\\ControllerActionInvoker.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\f4afc3a88e25fb070f72b4a8058cd7e207766a7e6982c00e0931b159fe6558b6\\ControllerActionInvoker.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\f4afc3a88e25fb070f72b4a8058cd7e207766a7e6982c00e0931b159fe6558b6\\ControllerActionInvoker.cs [Somente Leitura]",
+              "ViewState": "AgIAAGsBAAAAAAAAAAAAwHIBAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T00:58:00.982Z",
+              "EditorCaption": " [Somente Leitura]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "IMatchService.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Service\\IMatchService.cs",
-              "RelativeDocumentMoniker": "MatchService\\Service\\IMatchService.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Service\\IMatchService.cs",
-              "RelativeToolTip": "MatchService\\Service\\IMatchService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
+              "Title": "ResourceInvoker.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\21859c132d07f728e08c4c05f2840353e0149b97abfab2126ce002cb34542669\\ResourceInvoker.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\21859c132d07f728e08c4c05f2840353e0149b97abfab2126ce002cb34542669\\ResourceInvoker.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\21859c132d07f728e08c4c05f2840353e0149b97abfab2126ce002cb34542669\\ResourceInvoker.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\21859c132d07f728e08c4c05f2840353e0149b97abfab2126ce002cb34542669\\ResourceInvoker.cs [Somente Leitura]",
+              "ViewState": "AgIAALIAAAAAAAAAAAAAwMsAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:45:23.871Z"
+              "WhenOpened": "2025-10-17T00:58:03.536Z",
+              "EditorCaption": " [Somente Leitura]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UserDataMongoQueries.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Repository\\Mongo\\UserDataMongoQueries.cs",
-              "RelativeDocumentMoniker": "MatchService\\Repository\\Mongo\\UserDataMongoQueries.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Repository\\Mongo\\UserDataMongoQueries.cs",
-              "RelativeToolTip": "MatchService\\Repository\\Mongo\\UserDataMongoQueries.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAATAAAAAAAAAA==",
+              "Title": "EndpointMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\a89547de1df6c78131e5a454167f0936ed65275a025f62cf50c6b0af9b1bb9f3\\EndpointMiddleware.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\a89547de1df6c78131e5a454167f0936ed65275a025f62cf50c6b0af9b1bb9f3\\EndpointMiddleware.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\a89547de1df6c78131e5a454167f0936ed65275a025f62cf50c6b0af9b1bb9f3\\EndpointMiddleware.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\a89547de1df6c78131e5a454167f0936ed65275a025f62cf50c6b0af9b1bb9f3\\EndpointMiddleware.cs [Somente Leitura]",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAwGcAAAAEAAAAAQAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:40:19.218Z"
+              "WhenOpened": "2025-10-17T00:58:04.891Z",
+              "EditorCaption": " [Somente Leitura]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "UserMapper.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Mappers\\UserMapper.cs",
-              "RelativeDocumentMoniker": "MatchService\\Mappers\\UserMapper.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Mappers\\UserMapper.cs",
-              "RelativeToolTip": "MatchService\\Mappers\\UserMapper.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwDMAAAA0AAAAAAAAAA==",
+              "Title": "EndpointRoutingMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\2943b01cc009811d3f2c3c280c457f91d55b7d6e2b61b363d895535f69ffa9e5\\EndpointRoutingMiddleware.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\2943b01cc009811d3f2c3c280c457f91d55b7d6e2b61b363d895535f69ffa9e5\\EndpointRoutingMiddleware.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\2943b01cc009811d3f2c3c280c457f91d55b7d6e2b61b363d895535f69ffa9e5\\EndpointRoutingMiddleware.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\2943b01cc009811d3f2c3c280c457f91d55b7d6e2b61b363d895535f69ffa9e5\\EndpointRoutingMiddleware.cs [Somente Leitura]",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAwHgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:37:00.479Z"
+              "WhenOpened": "2025-10-17T00:58:05.37Z",
+              "EditorCaption": " [Somente Leitura]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DeveloperExceptionPageMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\11773c5e470c2a776d8c72588391a0cc1dd783f2566f489acb6308428d4adb42\\DeveloperExceptionPageMiddleware.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\11773c5e470c2a776d8c72588391a0cc1dd783f2566f489acb6308428d4adb42\\DeveloperExceptionPageMiddleware.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\11773c5e470c2a776d8c72588391a0cc1dd783f2566f489acb6308428d4adb42\\DeveloperExceptionPageMiddleware.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\11773c5e470c2a776d8c72588391a0cc1dd783f2566f489acb6308428d4adb42\\DeveloperExceptionPageMiddleware.cs [Somente Leitura]",
+              "ViewState": "AgIAADQAAAAAAAAAAAAAwEkAAAADAAAAAQAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T00:58:07.8Z",
+              "EditorCaption": " [Somente Leitura]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ParameterBinder.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\29f62c5153b7ca4099378c87e8eafa4cefbcef4b1c2db5416786d4389a71221f\\ParameterBinder.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\29f62c5153b7ca4099378c87e8eafa4cefbcef4b1c2db5416786d4389a71221f\\ParameterBinder.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\29f62c5153b7ca4099378c87e8eafa4cefbcef4b1c2db5416786d4389a71221f\\ParameterBinder.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\29f62c5153b7ca4099378c87e8eafa4cefbcef4b1c2db5416786d4389a71221f\\ParameterBinder.cs [Somente Leitura]",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAwGIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T00:58:50.557Z",
+              "EditorCaption": " [Somente Leitura]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BodyModelBinder.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\79b06d87d0c7aefff84e49549da7c671ac5893e3896a82869beb632af0fc359d\\BodyModelBinder.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\79b06d87d0c7aefff84e49549da7c671ac5893e3896a82869beb632af0fc359d\\BodyModelBinder.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\79b06d87d0c7aefff84e49549da7c671ac5893e3896a82869beb632af0fc359d\\BodyModelBinder.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\79b06d87d0c7aefff84e49549da7c671ac5893e3896a82869beb632af0fc359d\\BodyModelBinder.cs [Somente Leitura]",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAwFQAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T00:58:50.017Z",
+              "EditorCaption": " [Somente Leitura]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SystemTextJsonInputFormatter.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\5c7f7f92c0d25b2fa422656b1b6456c98e193d24b46b2c04ea03f4e23bf9cbdf\\SystemTextJsonInputFormatter.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\5c7f7f92c0d25b2fa422656b1b6456c98e193d24b46b2c04ea03f4e23bf9cbdf\\SystemTextJsonInputFormatter.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\5c7f7f92c0d25b2fa422656b1b6456c98e193d24b46b2c04ea03f4e23bf9cbdf\\SystemTextJsonInputFormatter.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\5c7f7f92c0d25b2fa422656b1b6456c98e193d24b46b2c04ea03f4e23bf9cbdf\\SystemTextJsonInputFormatter.cs [Somente Leitura]",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAwHQAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-17T00:58:46.615Z",
+              "EditorCaption": " [Somente Leitura]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "SqlUserData.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Model\\SqlModels\\SqlUserData.cs",
-              "RelativeDocumentMoniker": "MatchService\\Model\\SqlModels\\SqlUserData.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Model\\SqlModels\\SqlUserData.cs",
-              "RelativeToolTip": "MatchService\\Model\\SqlModels\\SqlUserData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Title": "ActionMethodExecutor.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\c09d8586b5209c4c2e2bccdd9ecbecb5838547098299787088a2a8f90ae3e503\\ActionMethodExecutor.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\c09d8586b5209c4c2e2bccdd9ecbecb5838547098299787088a2a8f90ae3e503\\ActionMethodExecutor.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\c09d8586b5209c4c2e2bccdd9ecbecb5838547098299787088a2a8f90ae3e503\\ActionMethodExecutor.cs [Somente Leitura]",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\Temp\\.vsdbgsrc\\c09d8586b5209c4c2e2bccdd9ecbecb5838547098299787088a2a8f90ae3e503\\ActionMethodExecutor.cs [Somente Leitura]",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAwGAAAAADAAAAAQAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:32:41.934Z"
+              "WhenOpened": "2025-10-17T00:57:59.202Z",
+              "EditorCaption": " [Somente Leitura]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserSearchDTO.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SearchService\\Data\\DTO\\UserSearchDTO.cs",
+              "RelativeDocumentMoniker": "SearchService\\Data\\DTO\\UserSearchDTO.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SearchService\\Data\\DTO\\UserSearchDTO.cs",
+              "RelativeToolTip": "SearchService\\Data\\DTO\\UserSearchDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T23:24:57.878Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "SearchServiceApp.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SearchService\\Service\\SearchServiceApp.cs",
+              "RelativeDocumentMoniker": "SearchService\\Service\\SearchServiceApp.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SearchService\\Service\\SearchServiceApp.cs",
+              "RelativeToolTip": "SearchService\\Service\\SearchServiceApp.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAUwDkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-16T23:18:08.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "UserDataSqlQueries.cs",
               "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SearchService\\Repository\\UserDataSqlQueries.cs",
               "RelativeDocumentMoniker": "SearchService\\Repository\\UserDataSqlQueries.cs",
               "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SearchService\\Repository\\UserDataSqlQueries.cs",
               "RelativeToolTip": "SearchService\\Repository\\UserDataSqlQueries.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwDkAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAAwGIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:17:34.429Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Program.cs",
-              "RelativeDocumentMoniker": "MatchService\\Program.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Program.cs",
-              "RelativeToolTip": "MatchService\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:41:36.709Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MatchController.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Controllers\\MatchController.cs",
-              "RelativeDocumentMoniker": "MatchService\\Controllers\\MatchController.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Controllers\\MatchController.cs",
-              "RelativeToolTip": "MatchService\\Controllers\\MatchController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:07:21.648Z",
+              "WhenOpened": "2025-10-16T23:22:06.66Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MatchServiceApp.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Service\\MatchServiceApp.cs",
-              "RelativeDocumentMoniker": "MatchService\\Service\\MatchServiceApp.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Service\\MatchServiceApp.cs",
-              "RelativeToolTip": "MatchService\\Service\\MatchServiceApp.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAawEIAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\AppDataService\\Program.cs",
+              "RelativeDocumentMoniker": "AppDataService\\Program.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\AppDataService\\Program.cs",
+              "RelativeToolTip": "AppDataService\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:07:23.798Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MatchRepository.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Repository\\MatchRepository.cs",
-              "RelativeDocumentMoniker": "MatchService\\Repository\\MatchRepository.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Repository\\MatchRepository.cs",
-              "RelativeToolTip": "MatchService\\Repository\\MatchRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwKIAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:17:17.721Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "IMatchRepository.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Repository\\IMatchRepository.cs",
-              "RelativeDocumentMoniker": "MatchService\\Repository\\IMatchRepository.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Repository\\IMatchRepository.cs",
-              "RelativeToolTip": "MatchService\\Repository\\IMatchRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-13T23:13:33.944Z"
+              "WhenOpened": "2025-10-16T22:49:10.579Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -53,6 +53,33 @@ namespace SearchService.Service
         }
 
 
+        public async Task<List<UserDataDTO>> SearchByCourseAndBlock(UserSearchDTO dto)
+        {
+            IEnumerable<SqlUserData> sqlData = await _sqlRepository.SearchByCourseAndBlock(dto);
+
+            if (sqlData.Count() == 0)
+            {
+                throw new ApiException(new ApiErrorModel("Nenhum Usuário encontrado!", 404));
+            }
+
+            List<UserDataDTO> usersData = new List<UserDataDTO>();
+
+            foreach (SqlUserData sqlUserData in sqlData)
+            {
+                IEnumerable<SqlBlocks> userBlocks = await _sqlRepository.GetUserBlocksById(sqlUserData.IdUsuario);
+                IEnumerable<SqlPreferences> userPreferences = await _sqlRepository.GetUserPreferencesById(sqlUserData.IdUsuario);
+
+                sqlUserData.BlocosUsario = userBlocks.Where(b => b.BlocoPrincipal == false).Select(b => BlocksMapper.ToDto(b)).ToList();
+                sqlUserData.BlocoPrincipal = userBlocks.Where(b => b.BlocoPrincipal == true).Select(b => BlocksMapper.ToDto(b)).FirstOrDefault();
+                sqlUserData.UsuarioPreferenciaGenero = userPreferences.Select(PreferencesMapper.ToDto).ToList();
+                MongoUserData mongoData = await _mongoRepository.GetUserById(sqlUserData.IdUsuario);
+
+                usersData.Add(UserMapper.ToDto(sqlUserData, mongoData));
+            }
+
+            return usersData;
+        }
+
         //Melhorar as mensagens de retorno
         //public async Task<LikeResponseDTO> SendUserLike(SendLikeDTO likeDTO)
         //{

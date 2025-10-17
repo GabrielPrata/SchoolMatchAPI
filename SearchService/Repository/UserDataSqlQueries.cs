@@ -62,11 +62,55 @@ namespace SearchService.Repository
 
             var users = await conn.QueryAsync<SqlUserData>(
                 query,
-                new { UserLikeFind = dto.UserLikeFind, userId = dto.UserId }
+                new { UserLikeFind = dto.UserLikeFind, UserId = dto.UserId }
             );
 
             return users;
         }
+        public async Task<IEnumerable<SqlUserData>> SearchByCourseAndBlock(UserSearchDTO dto)
+        {
+            const string sql = @"
+                WITH Bloqueados AS (
+                   SELECT M.USUARIODESTINATARIO AS ID
+                   FROM dbo.[MATCH] M
+                   WHERE M.USUARIOREMETENTE = @UserId
+                     AND M.USUARIOREMETENTEACAO = 1
+
+                   UNION   -- UNION elimina duplicados
+                   SELECT CASE WHEN M.USUARIOREMETENTE = @UserId
+                               THEN M.USUARIODESTINATARIO ELSE M.USUARIOREMETENTE END AS ID
+                   FROM dbo.[MATCH] M
+                   WHERE (M.USUARIOREMETENTE = @UserId OR M.USUARIODESTINATARIO = @UserId)
+                     AND M.USUARIOREMETENTEACAO = 1
+                     AND M.USUARIODESTINATARIOACAO = 1
+                )
+                SELECT
+                  U.IDUSUARIO, U.NOMEUSUARIO, U.SOBRENOMEUSUARIO,
+                  U.EMAILUSUARIO, U.CURSOUSUARIO, U.USUARIOGENERO
+                FROM dbo.USUARIOS U
+                WHERE U.USUARIOGENERO IN @UserLikeFind
+                  AND U.IDUSUARIO <> @UserId
+                  AND NOT EXISTS (SELECT 1 FROM Bloqueados B WHERE B.ID = U.IDUSUARIO)
+                  AND (@IdCurso = 0 OR U.CURSOUSUARIO = @IdCurso)
+                  AND (@IdBloco = 0 OR EXISTS (
+                        SELECT 1
+                        FROM dbo.BLOCOSUSUARIO BU
+                        WHERE BU.IDUSUARIO = U.IDUSUARIO
+                          AND BU.IDBLOCO   = @IdBloco
+                      ));
+                ";
+
+            await using var conn = GetOpenConnection();
+            return await conn.QueryAsync<SqlUserData>(sql, new
+            {
+                UserLikeFind = dto.Preferences.UserLikeFind,
+                UserId = dto.Preferences.UserId,
+                IdCurso = dto.CourseId,
+                IdBloco = dto.BlockId
+            });
+        }
+
+
 
         public async Task<IEnumerable<SqlBlocks>> GetUserBlocksById(int userId)
         {
