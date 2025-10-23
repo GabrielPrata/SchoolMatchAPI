@@ -117,7 +117,6 @@ namespace AccountService.Controllers
         {
             try
             {
-                //TODO: FINALIZAR A IMPLEMENTACAO CORRETA DO METODO
                 await _userDataService.UpdateUserData(dto);
                 return Ok();
             }

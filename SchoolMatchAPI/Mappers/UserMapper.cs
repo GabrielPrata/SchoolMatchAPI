@@ -37,6 +37,7 @@ namespace AccountService.Mappers
                
                 Interesses = mongoData.Interesses,
                 SpotifyMusicData = mongoData.SpotifyMusicData,
+                UserBase64Images = mongoData.UserBase64Images
             };
 
             return model;

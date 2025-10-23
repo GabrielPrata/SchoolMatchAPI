@@ -127,9 +127,6 @@ namespace AccountService.Service
 
         public async Task UpdateUserData(UserDataDTO userData)
         {
-            //TODO: FINALIZAR A IMPLEMENTACAO CORRETA DO MÉTODO
-            // TODO: separar a regra de negócio do repository:
-            // TODO: Aplicar unitOfWork - Commit Transactions, caso alguma dessas operações de erro, execute um rollback.
             if (!await _userSqlRepository.VerifyUserExist(userData.EmailUsuario))
             {
                 var error = new ApiErrorModel("Usuário não encontrado no sistema!", 409, Environment.StackTrace);
