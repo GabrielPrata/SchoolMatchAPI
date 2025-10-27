@@ -168,6 +168,5 @@ namespace AccountService.Repository
 
             return count > 0;
         }
-
     }
 }

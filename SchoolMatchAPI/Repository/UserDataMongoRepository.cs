@@ -31,5 +31,11 @@ namespace AccountService.Repository
         {
             await _userCollection.InsertOneAsync(data);
         }
+
+        public async Task UpdateUserData(MongoUserData data)
+        {
+            var filter = Builders<MongoUserData>.Filter.Eq(u => u.IdUsuario, data.IdUsuario);
+            await _userCollection.ReplaceOneAsync(filter, data);
+        }
     }
 }

@@ -48,6 +48,7 @@ namespace AccountService.Mappers
             var model = new SqlUserData
             {
                 // SQL DTO fields
+                IdUsuario = dto.IdUsuario,
                 NomeUsuario = dto.Nome,
                 SobrenomeUsuario = dto.Sobrenome,
                 EmailUsuario = dto.EmailUsuario,
@@ -70,6 +71,8 @@ namespace AccountService.Mappers
             var model = new MongoUserData
             {
                 // Mongo DTO fields
+                _id = dto.MongoId,
+                IdUsuario = (int)dto.IdUsuario,
                 Nome = dto.Nome,
                 Sobrenome = dto.Sobrenome,
                 Curso = dto.Curso,

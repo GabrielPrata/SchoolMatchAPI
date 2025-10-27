@@ -61,17 +61,17 @@ namespace AccountService.Controllers
                 //TODO: poderia ser um catch
                 if (ex is ApiException apiEx)
                 {
-                    // Se é uma ApiException, trate-a de forma específica
+                    // Se ï¿½ uma ApiException, trate-a de forma especï¿½fica
                     return StatusCode(apiEx.ErrorModel.StatusCode, apiEx.ErrorModel);
                 }
                 else if (ex is ArgumentException argEx)
                 {
-                    // Trate outras ArgumentExceptions de forma genérica
+                    // Trate outras ArgumentExceptions de forma genï¿½rica
                     return BadRequest(new ApiErrorModel(argEx.Message, 400));
                 }
                 else
                 {
-                    // Trate todas outras exceções não esperadas
+                    // Trate todas outras exceï¿½ï¿½es nï¿½o esperadas
                     return StatusCode(500, new ApiErrorModel("An unexpected error occurred", 500));
                 }
             }
@@ -93,17 +93,17 @@ namespace AccountService.Controllers
                 //TODO: poderia ser um catch
                 if (ex is ApiException apiEx)
                 {
-                    // Se é uma ApiException, trate-a de forma específica
+                    // Se ï¿½ uma ApiException, trate-a de forma especï¿½fica
                     return StatusCode(apiEx.ErrorModel.StatusCode, apiEx.ErrorModel);
                 }
                 else if (ex is ArgumentException argEx)
                 {
-                    // Trate outras ArgumentExceptions de forma genérica
+                    // Trate outras ArgumentExceptions de forma genï¿½rica
                     return BadRequest(new ApiErrorModel(argEx.Message, 400));
                 }
                 else
                 {
-                    // Trate todas outras exceções não esperadas
+                    // Trate todas outras exceï¿½ï¿½es nï¿½o esperadas
                     return StatusCode(500, new ApiErrorModel("An unexpected error occurred", 500));
                 }
             }
@@ -125,17 +125,17 @@ namespace AccountService.Controllers
                 //TODO: poderia ser um catch
                 if (ex is ApiException apiEx)
                 {
-                    // Se é uma ApiException, trate-a de forma específica
+                    // Se ï¿½ uma ApiException, trate-a de forma especï¿½fica
                     return StatusCode(apiEx.ErrorModel.StatusCode, apiEx.ErrorModel);
                 }
                 else if (ex is ArgumentException argEx)
                 {
-                    // Trate outras ArgumentExceptions de forma genérica
+                    // Trate outras ArgumentExceptions de forma genï¿½rica
                     return BadRequest(new ApiErrorModel(argEx.Message, 400));
                 }
                 else
                 {
-                    // Trate todas outras exceções não esperadas
+                    // Trate todas outras exceï¿½ï¿½es nï¿½o esperadas
                     return StatusCode(500, new ApiErrorModel("An unexpected error occurred", 500));
                 }
             }
@@ -156,17 +156,17 @@ namespace AccountService.Controllers
 
                 if (ex is ApiException apiEx)
                 {
-                    // Se é uma ApiException, trate-a de forma específica
+                    // Se ï¿½ uma ApiException, trate-a de forma especï¿½fica
                     return StatusCode(apiEx.ErrorModel.StatusCode, apiEx.ErrorModel);
                 }
                 else if (ex is ArgumentException argEx)
                 {
-                    // Trate outras ArgumentExceptions de forma genérica
+                    // Trate outras ArgumentExceptions de forma genï¿½rica
                     return BadRequest(new ApiErrorModel(argEx.Message, 400));
                 }
                 else
                 {
-                    // Trate todas outras exceções não esperadas
+                    // Trate todas outras exceï¿½ï¿½es nï¿½o esperadas
                     return StatusCode(500, new ApiErrorModel("An unexpected error occurred", 500));
                 }
             }
@@ -184,7 +184,7 @@ namespace AccountService.Controllers
                     return Ok();
                 } else
                 {
-                    return StatusCode(403, new ApiErrorModel("Esse e-mail ainda não foi verificado!", 403));
+                    return StatusCode(403, new ApiErrorModel("Esse e-mail ainda nï¿½o foi verificado!", 403));
                 }
                
             }
@@ -193,17 +193,17 @@ namespace AccountService.Controllers
 
                 if (ex is ApiException apiEx)
                 {
-                    // Se é uma ApiException, trate-a de forma específica
+                    // Se ï¿½ uma ApiException, trate-a de forma especï¿½fica
                     return StatusCode(apiEx.ErrorModel.StatusCode, apiEx.ErrorModel);
                 }
                 else if (ex is ArgumentException argEx)
                 {
-                    // Trate outras ArgumentExceptions de forma genérica
+                    // Trate outras ArgumentExceptions de forma genï¿½rica
                     return BadRequest(new ApiErrorModel(argEx.Message, 400));
                 }
                 else
                 {
-                    // Trate todas outras exceções não esperadas
+                    // Trate todas outras exceï¿½ï¿½es nï¿½o esperadas
                     return StatusCode(500, new ApiErrorModel("An unexpected error occurred", 500));
                 }
             }

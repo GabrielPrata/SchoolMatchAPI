@@ -127,30 +127,35 @@ namespace AccountService.Service
 
         public async Task UpdateUserData(UserDataDTO userData)
         {
-            if (!await _userSqlRepository.VerifyUserExist(userData.EmailUsuario))
+            if (!userData.IdUsuario.HasValue || !await _userSqlRepository.VerifyUserExist(userData.EmailUsuario))
             {
-                var error = new ApiErrorModel("Usuário não encontrado no sistema!", 409, Environment.StackTrace);
+                var error = new ApiErrorModel("Usuário não encontrado no sistema!", 404, Environment.StackTrace);
                 throw new ApiException(error);
             }
 
+            int userId = userData.IdUsuario.Value;
+
+            userData.UsuarioEditedAt = DateTime.Now;
 
             SqlUserData sqlData = userData.ToSqlModel();
             MongoUserData mongoData = userData.ToMongoModel();
 
-            int userId = await _userSqlRepository.SaveUserData(sqlData);
+            await _userSqlRepository.UpdateUserData(sqlData);
 
+            await _userSqlRepository.DeleteUserGenreInterests(userId);
             foreach (GenderDTO gender in sqlData.UsuarioPreferenciaGenero)
             {
                 await _userSqlRepository.SaveUserGenreInterests(userId, gender.GenderId);
             }
 
+            await _userSqlRepository.DeleteUserBlocks(userId);
             sqlData.BlocosUsario.Add(sqlData.BlocoPrincipal);
             foreach (BlocksDTO block in sqlData.BlocosUsario)
             {
                 await _userSqlRepository.SaveUserBlocks(userId, block.BlockId);
             }
-            mongoData.IdUsuario = userId;
-            await _userMongoRepository.SaveUserData(mongoData);
+
+            await _userMongoRepository.UpdateUserData(mongoData);
         }
 
         public async Task SaveEmailToVerify(string userEmail)

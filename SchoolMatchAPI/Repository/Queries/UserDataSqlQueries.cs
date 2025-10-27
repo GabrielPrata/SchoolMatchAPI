@@ -209,5 +209,58 @@ namespace AccountService.Repository.Queries
             return count > 0;
         }
 
+        public async Task<int> UpdateUserData(SqlUserData data)
+        {
+            const string query = @"
+                UPDATE USUARIOS 
+                SET 
+                    NOMEUSUARIO = @Nome, 
+                    SOBRENOMEUSUARIO = @Sobrenome, 
+                    EMAILUSUARIO = @Email, 
+                    SENHAUSUARIO = @Senha, 
+                    USUARIOVERIFICADO = @Verificado, 
+                    CURSOUSUARIO = @Curso, 
+                    USUARIOGENERO = @Genero, 
+                    USUARIOEDITEDAT = @EditedAt
+                WHERE IDUSUARIO = @IdUsuario;
+            ";
+
+            await using var conn = GetOpenConnection();
+            var affectedRows = await conn.ExecuteAsync(query, new
+            {
+                IdUsuario = data.IdUsuario,
+                Nome = data.NomeUsuario,
+                Sobrenome = data.SobrenomeUsuario,
+                Email = data.EmailUsuario,
+                Senha = data.SenhaUsuario,
+                Verificado = data.UsuarioVerificado,
+                Curso = data.CursoUsuario,
+                Genero = data.UsuarioGenero,
+                EditedAt = data.UsuarioEditedAt,
+            });
+
+            return affectedRows;
+        }
+
+        public async Task DeleteUserGenreInterests(int userId)
+        {
+            const string query = @"
+                DELETE FROM USUARIOINTERESSEGENERO WHERE IDUSUARIO = @IdUsuario;
+            ";
+
+            await using var conn = GetOpenConnection();
+            await conn.ExecuteAsync(query, new { IdUsuario = userId });
+        }
+
+        public async Task DeleteUserBlocks(int userId)
+        {
+            const string query = @"
+                DELETE FROM BLOCOSUSUARIO WHERE IDUSUARIO = @IdUsuario;
+            ";
+
+            await using var conn = GetOpenConnection();
+            await conn.ExecuteAsync(query, new { IdUsuario = userId });
+        }
+
     }
 }
