@@ -10,9 +10,9 @@ namespace AppDataService.Mappers
             var model = new SexualityDTO
             {
                 // SQL fields
-                Id = sqlData.Id,
-                Nome = sqlData.Nome,
-                Descricao = sqlData.Descricao,
+                SexualityId = sqlData.Id,
+                SexualityName = sqlData.Nome,
+                SexualityDescription = sqlData.Descricao,
             };
 
             return model;
@@ -23,9 +23,9 @@ namespace AppDataService.Mappers
             var model = new SqlSexualityData
             {
                 // SQL DTO fields
-                Id = dto.Id,
-                Nome = dto.Nome,
-                Descricao = dto.Descricao,
+                Id = dto.SexualityId,
+                Nome = dto.SexualityName,
+                Descricao = dto.SexualityDescription,
 
             };
 

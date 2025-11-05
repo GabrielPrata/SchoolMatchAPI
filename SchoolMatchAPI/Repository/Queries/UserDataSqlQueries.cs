@@ -1,4 +1,5 @@
-﻿using AccountService.Data.DTO;
+﻿using System.Data;
+using AccountService.Data.DTO;
 using AccountService.Model.SqlModels;
 using Dapper;
 using Microsoft.Data.SqlClient;
@@ -24,6 +25,17 @@ namespace AccountService.Repository.Queries
                 return _connection;
             }
             return _connection;
+        }
+
+        public async Task DeleteAllUserData(int userId)
+        {
+            await using var conn = GetOpenConnection();
+
+            var rows = await conn.ExecuteAsync(
+                "spDeletarUsuario",
+                new { IDUSUARIO = userId },   
+                commandType: CommandType.StoredProcedure
+            );
         }
 
 
@@ -169,6 +181,23 @@ namespace AccountService.Repository.Queries
                 );
         }
 
+        public async Task SaveUserMainBlock(int userId, int userBlock)
+        {
+            const string query = @"
+                INSERT INTO BLOCOSUSUARIO(IDUSUARIO, IDBLOCO, BLOCOPRINCIPAL)
+                VALUES(@IdUsuario, @IdBloco, 1)   
+            ";
+
+            await using var conn = GetOpenConnection();
+            var userData = await conn.ExecuteAsync(query,
+                new
+                {
+                    IdUsuario = userId,
+                    IdBloco = userBlock,
+                }
+                );
+        }
+
         public async Task SaveEmailToVerify(string userEmail)
         {
             const string query = @"
@@ -215,12 +244,9 @@ namespace AccountService.Repository.Queries
                 UPDATE USUARIOS 
                 SET 
                     NOMEUSUARIO = @Nome, 
-                    SOBRENOMEUSUARIO = @Sobrenome, 
-                    EMAILUSUARIO = @Email, 
-                    SENHAUSUARIO = @Senha, 
+                    SOBRENOMEUSUARIO = @Sobrenome,
                     USUARIOVERIFICADO = @Verificado, 
                     CURSOUSUARIO = @Curso, 
-                    USUARIOGENERO = @Genero, 
                     USUARIOEDITEDAT = @EditedAt
                 WHERE IDUSUARIO = @IdUsuario;
             ";
@@ -231,11 +257,9 @@ namespace AccountService.Repository.Queries
                 IdUsuario = data.IdUsuario,
                 Nome = data.NomeUsuario,
                 Sobrenome = data.SobrenomeUsuario,
-                Email = data.EmailUsuario,
-                Senha = data.SenhaUsuario,
                 Verificado = data.UsuarioVerificado,
                 Curso = data.CursoUsuario,
-                Genero = data.UsuarioGenero,
+
                 EditedAt = data.UsuarioEditedAt,
             });
 

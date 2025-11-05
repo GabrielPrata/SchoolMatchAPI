@@ -11,6 +11,8 @@ namespace AccountService.Service
         Task SaveEmailToVerify(string userEmail);
         Task<bool> CheckIfEmailIsVerified(string userEmail);
         Task<string> GetIdentityToken(int userId, string userMail, string userName);
+        Task SendAllDataMail(UserDataDTO userData);
+        Task DeleteAllUserData(int userId);
 
 
         //Task<SQLUserDataDTO> FindUserSqlById(string userId);

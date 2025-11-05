@@ -10,8 +10,8 @@ namespace AppDataService.Mappers
             var model = new InterestsDTO
             {
                 // SQL fields
-                Id = sqlData.Id,
-                Nome = sqlData.Nome,
+                InterestId = sqlData.Id,
+                InterestName = sqlData.Nome,
             };
 
             return model;
@@ -22,8 +22,8 @@ namespace AppDataService.Mappers
             var model = new SqlInterestsData
             {
                 // SQL DTO fields
-                Id = dto.Id,
-                Nome = dto.Nome,
+                Id = dto.InterestId,
+                Nome = dto.InterestName,
 
             };
 

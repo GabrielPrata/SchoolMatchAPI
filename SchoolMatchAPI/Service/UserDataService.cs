@@ -8,6 +8,8 @@ using MimeKit;
 using Microsoft.Extensions.Options;
 using MailKit.Net.Smtp;
 using System.Text.Json;
+using System.Text;
+using Newtonsoft.Json;
 
 namespace AccountService.Service
 {
@@ -71,7 +73,7 @@ namespace AccountService.Service
 
                     sqlUserData.BlocosUsario = userBlocks.Where(b => b.BlocoPrincipal == false).Select(b => BlocksMapper.ToDto(b)).ToList();
                     sqlUserData.BlocoPrincipal = userBlocks.Where(b => b.BlocoPrincipal == true).Select(b => BlocksMapper.ToDto(b)).FirstOrDefault();
-                    sqlUserData.UsuarioPreferenciaGenero = userPreferences.Select(PreferencesMapper.ToDto).ToList();          
+                    sqlUserData.UsuarioPreferenciaGenero = userPreferences.Select(PreferencesMapper.ToDto).ToList();
 
 
                     MongoUserData mongoUserData = await _userMongoRepository.GetUserById(userId);
@@ -80,7 +82,7 @@ namespace AccountService.Service
 
                     string userToken = await GetIdentityToken(userId, sqlUserData.EmailUsuario, sqlUserData.NomeUsuario);
 
-                    userData.UserToken = userToken; 
+                    userData.UserToken = userToken;
 
                     return userData;
                 }
@@ -127,7 +129,7 @@ namespace AccountService.Service
 
         public async Task UpdateUserData(UserDataDTO userData)
         {
-            if (!userData.IdUsuario.HasValue || !await _userSqlRepository.VerifyUserExist(userData.EmailUsuario))
+            if (!userData.IdUsuario.HasValue)
             {
                 var error = new ApiErrorModel("Usuário não encontrado no sistema!", 404, Environment.StackTrace);
                 throw new ApiException(error);
@@ -138,7 +140,7 @@ namespace AccountService.Service
             userData.UsuarioEditedAt = DateTime.Now;
 
             SqlUserData sqlData = userData.ToSqlModel();
-            MongoUserData mongoData = userData.ToMongoModel();
+            MongoUserData2 mongoData = userData.ToMongoModel2();
 
             await _userSqlRepository.UpdateUserData(sqlData);
 
@@ -149,7 +151,8 @@ namespace AccountService.Service
             }
 
             await _userSqlRepository.DeleteUserBlocks(userId);
-            sqlData.BlocosUsario.Add(sqlData.BlocoPrincipal);
+            //sqlData.BlocosUsario.Add(sqlData.BlocoPrincipal);
+            await _userSqlRepository.SaveUserMainBlock(userId, sqlData.BlocoPrincipal.BlockId);
             foreach (BlocksDTO block in sqlData.BlocosUsario)
             {
                 await _userSqlRepository.SaveUserBlocks(userId, block.BlockId);
@@ -184,8 +187,6 @@ namespace AccountService.Service
         {
             return await _userSqlRepository.CheckIfEmailIsVerified(userEmail);
         }
-
-
 
         private async Task SendVerificationEmail(string userEmail)
         {
@@ -279,6 +280,107 @@ namespace AccountService.Service
             }
         }
 
+
+        public async Task DeleteAllUserData(int userId)
+        {
+            await _userSqlRepository.DeleteAllUserData(userId);
+        }
+
+        public async Task SendAllDataMail(UserDataDTO userData)
+        {
+            try
+            {
+                // Serializa o objeto em JSON formatado
+                string jsonData = JsonConvert.SerializeObject(userData, Formatting.Indented);
+
+                // Cria o e-mail
+                var message = new MimeMessage();
+                message.From.Add(new MailboxAddress(_emailConfig.Remetente, _emailConfig.Email));
+                message.To.Add(MailboxAddress.Parse(userData.EmailUsuario));
+                message.Subject = "Seguem seus dados:";
+
+                var bodyBuilder = new BodyBuilder
+                {
+                    HtmlBody = $@"<!DOCTYPE html>
+            <html lang=""pt-br"">
+            <head>
+            <meta charset=""UTF-8"">
+            <title>SchoolMatch - Dados do Usuário</title>
+            <style>
+                body {{
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4;
+                    color: #ffffff;
+                    margin: 0;
+                    padding: 0;
+                }}
+                .email-container {{
+                    max-width: 600px;
+                    margin: 20px auto;
+                    background: #1a237e;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                }}
+                .header {{
+                    background-color: #110231;
+                    padding: 20px;
+                    text-align: center;
+                }}
+                .email-content {{
+                    padding: 20px;
+                }}
+                .footer {{
+                    text-align: center;
+                    padding: 10px;
+                    background-color: #1a237e;
+                    font-size: 12px;
+                }}
+                a {{
+                    color: #ffeb3b;
+                }}
+            </style>
+            </head>
+            <body>
+                <div class=""email-container"">
+                    <div class=""header"">
+                        <img src=""https://schoolmatch.com.br/img/logoInteira.png"" width=""240"" alt=""SchoolMatch Logo""/>
+                    </div>
+                    <div class=""email-content"">
+                        <h2>Olá, {userData.Nome}!</h2>
+                        <p>Segue em anexo o arquivo contendo todos os seus dados cadastrados.</p>
+                        <p>Abra o anexo <b>user_data.json</b> para visualizar.</p>
+                    </div>
+                    <div class=""footer"">
+                        Não esqueça de seguir no Instagram:
+                        <a href=""https://www.instagram.com/schoolmatchfho/"">@schoolmatchfho</a>
+                    </div>
+                </div>
+            </body>
+            </html>"
+                };
+
+                // Adiciona o anexo JSON
+                var jsonBytes = Encoding.UTF8.GetBytes(jsonData);
+                bodyBuilder.Attachments.Add("user_data.json", jsonBytes, new ContentType("application", "json"));
+
+                message.Body = bodyBuilder.ToMessageBody();
+
+                // Envio via SMTP
+                using var client = new SmtpClient();
+                await client.ConnectAsync(_emailConfig.SMTP, _emailConfig.Porta, true);
+                await client.AuthenticateAsync(_emailConfig.Email, _emailConfig.Senha);
+                await client.SendAsync(message);
+                await client.DisconnectAsync(true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Erro ao enviar e-mail: " + ex.Message);
+                throw;
+            }
+        }
+
+
         public async Task<string> GetIdentityToken(int userId, string userMail, string userName)
         {
             using var client = new HttpClient();
@@ -311,7 +413,7 @@ namespace AccountService.Service
                 PropertyNameCaseInsensitive = true
             };
 
-            var dto = JsonSerializer.Deserialize<IdentityResponseDTO>(json, options);
+            var dto = Newtonsoft.Json.JsonConvert.DeserializeObject<IdentityResponseDTO>(json);
 
             return dto.access_token;
         }

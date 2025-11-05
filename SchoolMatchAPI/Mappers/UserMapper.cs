@@ -70,6 +70,33 @@ namespace AccountService.Mappers
         {
             var model = new MongoUserData
             {
+               
+                Nome = dto.Nome,
+                Sobrenome = dto.Sobrenome,
+                Curso = dto.Curso,
+                BlocoPrincipal = dto.BlocoPrincipal,
+                BlocosSecundarios = dto.BlocosUsuario,
+                Sexualidade = dto.Sexualidade,
+                Genero = dto.Genero,
+                Bio = dto.Bio,
+                DataNascimento = dto.DataNascimento,
+                Cidade = dto.Cidade,
+                SobreUsuario = dto.UserAbout,
+                Semestre = dto.Semestre,
+                Interesses = dto.Interesses,
+                CriadoEm = dto.UsuarioCreatedAt,
+                ModificadoEm = dto.UsuarioEditedAt,
+                SpotifyMusicData = dto.SpotifyMusicData,
+                UserBase64Images = dto.UserBase64Images,
+            };
+
+            return model;
+        }
+
+        internal static MongoUserData2 ToMongoModel2(this UserDataDTO dto)
+        {
+            var model = new MongoUserData2
+            {
                 // Mongo DTO fields
                 _id = dto.MongoId,
                 IdUsuario = (int)dto.IdUsuario,

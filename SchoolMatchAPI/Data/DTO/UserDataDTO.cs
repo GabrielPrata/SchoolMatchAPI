@@ -16,7 +16,7 @@ namespace AccountService.Data.DTO
         public CourseDurationDTO Semestre { get; set; }
         public UserAboutDTO UserAbout { get; set; }
         public List<InterestsDTO> Interesses { get; set; }
-        public SpotifyMusicModel SpotifyMusicData { get; set; }
+        public SpotifyMusicModel? SpotifyMusicData { get; set; }
         public List<string> UserBase64Images { get; set; }
 
         // Campos do SQLUserDataDTO

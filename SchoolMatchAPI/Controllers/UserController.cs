@@ -47,6 +47,51 @@ namespace AccountService.Controllers
 
         }
 
+        [HttpGet]
+        //[Authorize]
+        [Route("/users/Data/LGPD/{userId:int}")]
+        public async Task<IActionResult> AllUserData([FromRoute] int userId)
+        {
+            try
+            {
+
+                var userData = await _userDataService.GetUserDataById(userId);
+                await _userDataService.SendAllDataMail(userData);
+
+                if (userData != null)
+                {
+                    return Ok(userData);
+                }
+                else
+                {
+                    return NoContent();
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new ApiErrorModel(ex.Message, ex.StackTrace));
+            }
+
+        }
+
+        [HttpDelete]
+        //[Authorize]
+        [Route("/users/Data/LGPD/{userId:int}")]
+        public async Task<IActionResult> DeleteAllUserData([FromRoute] int userId)
+        {
+            try
+            {
+                await _userDataService.DeleteAllUserData(userId);
+
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new ApiErrorModel(ex.Message, ex.StackTrace));
+            }
+
+        }
+
         [HttpPost]
         [Route("/users/Data")]
         public async Task<IActionResult> UserData([FromBody] UserDataDTO dto)
