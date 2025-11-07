@@ -6,6 +6,7 @@ namespace MatchService.Model.SqlModels
     public class SqlUserData
     {
         public int IdUsuario { get; set; }
+        public string Telefone { get; set; }
         public string NomeUsuario { get; set; }
         public string SobrenomeUsuario { get; set; }
         public string EmailUsuario { get; set; }

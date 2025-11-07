@@ -13,7 +13,7 @@ namespace SearchService.Mappers
             var model = new UserDataDTO
             {
                 // SQL fields
-
+                Telefone = sqlData.Telefone,
                 IdUsuario = sqlData.IdUsuario,
                 Nome = sqlData.NomeUsuario,
                 Sobrenome = sqlData.SobrenomeUsuario,
@@ -45,6 +45,7 @@ namespace SearchService.Mappers
             var model = new SqlUserData
             {
                 // SQL DTO fields
+                Telefone = dto.Telefone,
                 NomeUsuario = dto.Nome,
                 SobrenomeUsuario = dto.Sobrenome,
                 EmailUsuario = dto.EmailUsuario,

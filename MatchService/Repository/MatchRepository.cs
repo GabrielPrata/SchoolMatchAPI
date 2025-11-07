@@ -148,7 +148,8 @@ namespace MatchService.Repository
                     u.SOBRENOMEUSUARIO,
                     u.EMAILUSUARIO,
                     u.CURSOUSUARIO,
-                    u.USUARIOGENERO
+                    u.USUARIOGENERO,
+                    u.TELEFONE
                 FROM dbo.USUARIOS u
                 WHERE u.IDUSUARIO <> @SenderUserId
                   AND EXISTS (

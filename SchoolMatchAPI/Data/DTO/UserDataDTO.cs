@@ -20,6 +20,7 @@ namespace AccountService.Data.DTO
         public List<string> UserBase64Images { get; set; }
 
         // Campos do SQLUserDataDTO
+        public string Telefone { get; set; }
         public string EmailUsuario { get; set; }
         public string SenhaUsuario { get; set; }
         public bool UsuarioVerificado { get; set; }

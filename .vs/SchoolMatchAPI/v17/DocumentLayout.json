@@ -3,12 +3,24 @@
   "WorkspaceRootPath": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\schoolmatchapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|solutionrelative:schoolmatchapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\controllers\\matchcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\schoolmatchapi\\service\\iuserdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|solutionrelative:schoolmatchapi\\service\\iuserdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\repository\\matchrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\repository\\matchrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\mappers\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\mappers\\usermapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\data\\dto\\profile\\userdatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\data\\dto\\profile\\userdatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\schoolmatchapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|solutionrelative:schoolmatchapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\schoolmatchapi\\service\\userdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -17,6 +29,17 @@
     {
       "AbsoluteMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\schoolmatchapi\\repository\\queries\\userdatasqlqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|solutionrelative:schoolmatchapi\\repository\\queries\\userdatasqlqueries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\matchservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5708280C-3A31-4CBD-93A1-E5E2CF0CEED7}|MatchService\\MatchService.csproj|solutionrelative:matchservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|c:\\projetos\\schoolmatch\\schoolmatchapi\\schoolmatchapi\\data\\dto\\userdatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C170D2AE-F62E-4FDB-9A30-F25C14669C13}|SchoolMatchAPI\\AccountService.csproj|solutionrelative:schoolmatchapi\\data\\dto\\userdatadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\gabri\\AppData\\Local\\SourceServer\\084ea33e05cda31035b80fe51232510006b5cf2837a1db8b175827ccdb66e3fa\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\Task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,56 +49,134 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IUserDataService.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Service\\IUserDataService.cs",
-              "RelativeDocumentMoniker": "SchoolMatchAPI\\Service\\IUserDataService.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Service\\IUserDataService.cs",
-              "RelativeToolTip": "SchoolMatchAPI\\Service\\IUserDataService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAArAAAAAAAAAA==",
+              "Title": "MatchRepository.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Repository\\MatchRepository.cs",
+              "RelativeDocumentMoniker": "MatchService\\Repository\\MatchRepository.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Repository\\MatchRepository.cs",
+              "RelativeToolTip": "MatchService\\Repository\\MatchRepository.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAADgv5YAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T23:28:09.748Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "SchoolMatchAPI\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Controllers\\UserController.cs",
-              "RelativeToolTip": "SchoolMatchAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAqwFUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-21T00:02:44.153Z",
+              "WhenOpened": "2025-11-07T01:14:59.577Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "UserMapper.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Mappers\\UserMapper.cs",
+              "RelativeDocumentMoniker": "MatchService\\Mappers\\UserMapper.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Mappers\\UserMapper.cs",
+              "RelativeToolTip": "MatchService\\Mappers\\UserMapper.cs",
+              "ViewState": "AgIAAFMAAAAAAAAAAAAwwC8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T01:14:14.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserDataDTO.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Data\\DTO\\Profile\\UserDataDTO.cs",
+              "RelativeDocumentMoniker": "MatchService\\Data\\DTO\\Profile\\UserDataDTO.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Data\\DTO\\Profile\\UserDataDTO.cs",
+              "RelativeToolTip": "MatchService\\Data\\DTO\\Profile\\UserDataDTO.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAQwBQAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T01:13:41.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MatchController.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Controllers\\MatchController.cs",
+              "RelativeDocumentMoniker": "MatchService\\Controllers\\MatchController.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Controllers\\MatchController.cs",
+              "RelativeToolTip": "MatchService\\Controllers\\MatchController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwDsAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T01:13:37.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserDataDTO.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Data\\DTO\\UserDataDTO.cs",
+              "RelativeDocumentMoniker": "SchoolMatchAPI\\Data\\DTO\\UserDataDTO.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Data\\DTO\\UserDataDTO.cs",
+              "RelativeToolTip": "SchoolMatchAPI\\Data\\DTO\\UserDataDTO.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-06T23:19:48.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\Users\\gabri\\AppData\\Local\\SourceServer\\084ea33e05cda31035b80fe51232510006b5cf2837a1db8b175827ccdb66e3fa\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\Task.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\Users\\gabri\\AppData\\Local\\SourceServer\\084ea33e05cda31035b80fe51232510006b5cf2837a1db8b175827ccdb66e3fa\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\Task.cs",
+              "ToolTip": "C:\\Users\\gabri\\AppData\\Local\\SourceServer\\084ea33e05cda31035b80fe51232510006b5cf2837a1db8b175827ccdb66e3fa\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\Task.cs",
+              "RelativeToolTip": "..\\..\\..\\Users\\gabri\\AppData\\Local\\SourceServer\\084ea33e05cda31035b80fe51232510006b5cf2837a1db8b175827ccdb66e3fa\\src\\libraries\\System.Private.CoreLib\\src\\System\\Threading\\Tasks\\Task.cs",
+              "ViewState": "AgIAAL4CAAAAAAAAAAAswPcCAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-05T23:57:16.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "UserDataService.cs",
               "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Service\\UserDataService.cs",
               "RelativeDocumentMoniker": "SchoolMatchAPI\\Service\\UserDataService.cs",
               "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Service\\UserDataService.cs",
               "RelativeToolTip": "SchoolMatchAPI\\Service\\UserDataService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwBgBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-23T00:21:03.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Program.cs",
+              "RelativeDocumentMoniker": "MatchService\\Program.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\MatchService\\Program.cs",
+              "RelativeToolTip": "MatchService\\Program.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAFUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-07T00:39:08.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "SchoolMatchAPI\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "SchoolMatchAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAiwIAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-21T00:02:44.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "UserDataSqlQueries.cs",
               "DocumentMoniker": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Repository\\Queries\\UserDataSqlQueries.cs",
               "RelativeDocumentMoniker": "SchoolMatchAPI\\Repository\\Queries\\UserDataSqlQueries.cs",
               "ToolTip": "C:\\Projetos\\SchoolMatch\\SchoolMatchAPI\\SchoolMatchAPI\\Repository\\Queries\\UserDataSqlQueries.cs",
               "RelativeToolTip": "SchoolMatchAPI\\Repository\\Queries\\UserDataSqlQueries.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAQwB0AAAArAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADMAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-05T23:21:14.496Z",
               "EditorCaption": ""

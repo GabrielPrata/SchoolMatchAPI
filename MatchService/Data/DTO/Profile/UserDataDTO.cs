@@ -18,6 +18,7 @@
         public List<string> UserBase64Images { get; set; }
 
         // Campos do SQLUserDataDTO
+        public string Telefone { get; set; }
         public string EmailUsuario { get; set; }
         public bool UsuarioVerificado { get; set; }
         public CourseDTO Curso { get; set; }

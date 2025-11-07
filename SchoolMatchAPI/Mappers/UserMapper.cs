@@ -11,8 +11,8 @@ namespace AccountService.Mappers
             var model = new UserDataDTO
             {
                 // SQL fields
-
                 IdUsuario = sqlData.IdUsuario,
+                Telefone = sqlData.Telefone,
                 Nome = sqlData.NomeUsuario,
                 Sobrenome = sqlData.SobrenomeUsuario,
                 EmailUsuario = sqlData.EmailUsuario,
@@ -49,6 +49,7 @@ namespace AccountService.Mappers
             {
                 // SQL DTO fields
                 IdUsuario = dto.IdUsuario,
+                Telefone = dto.Telefone,
                 NomeUsuario = dto.Nome,
                 SobrenomeUsuario = dto.Sobrenome,
                 EmailUsuario = dto.EmailUsuario,

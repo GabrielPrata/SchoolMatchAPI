@@ -38,7 +38,6 @@ namespace AccountService.Repository.Queries
             );
         }
 
-
         public async Task<SqlUserData> GetUserDataById(int userId)
         {
             const string query = @"SELECT 
@@ -50,6 +49,7 @@ namespace AccountService.Repository.Queries
                 u.USUARIOVERIFICADO AS UsuarioVerificado,
                 u.CURSOUSUARIO   AS CursoUsuario,
                 u.USUARIOGENERO  AS UsuarioGenero
+                u.TELEFONE  AS Telefone
             FROM USUARIOS u
             WHERE u.IDUSUARIO = @id;";
 
@@ -88,18 +88,18 @@ namespace AccountService.Repository.Queries
             return userPreferences;
         }
 
-
         public async Task<int> SaveUserData(SqlUserData data)
         {
             const string query = @"
-        INSERT INTO USUARIOS (NOMEUSUARIO, SOBRENOMEUSUARIO, EMAILUSUARIO, SENHAUSUARIO, USUARIOVERIFICADO, CURSOUSUARIO, USUARIOGENERO, USUARIOCREATEDAT)
-        VALUES (@Nome, @Sobrenome, @Email, @Senha, @Verificado, @Curso, @Genero, @CreatedAt);
+        INSERT INTO USUARIOS (TELEFONE, NOMEUSUARIO, SOBRENOMEUSUARIO, EMAILUSUARIO, SENHAUSUARIO, USUARIOVERIFICADO, CURSOUSUARIO, USUARIOGENERO, USUARIOCREATEDAT)
+        VALUES (@Telefone, @Nome, @Sobrenome, @Email, @Senha, @Verificado, @Curso, @Genero, @CreatedAt);
         SELECT CAST(SCOPE_IDENTITY() as int);
     ";
 
             await using var conn = GetOpenConnection();
             var userId = await conn.ExecuteScalarAsync<int>(query, new
             {
+                Telefone = data.Telefone,
                 Nome = data.NomeUsuario,
                 Sobrenome = data.SobrenomeUsuario,
                 Email = data.EmailUsuario,
@@ -247,7 +247,8 @@ namespace AccountService.Repository.Queries
                     SOBRENOMEUSUARIO = @Sobrenome,
                     USUARIOVERIFICADO = @Verificado, 
                     CURSOUSUARIO = @Curso, 
-                    USUARIOEDITEDAT = @EditedAt
+                    USUARIOEDITEDAT = @EditedAt,
+                    TELEFONE = @Telefone
                 WHERE IDUSUARIO = @IdUsuario;
             ";
 
@@ -259,7 +260,7 @@ namespace AccountService.Repository.Queries
                 Sobrenome = data.SobrenomeUsuario,
                 Verificado = data.UsuarioVerificado,
                 Curso = data.CursoUsuario,
-
+                Telefone = data.Telefone,
                 EditedAt = data.UsuarioEditedAt,
             });
 

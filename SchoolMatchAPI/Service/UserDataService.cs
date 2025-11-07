@@ -280,7 +280,6 @@ namespace AccountService.Service
             }
         }
 
-
         public async Task DeleteAllUserData(int userId)
         {
             await _userSqlRepository.DeleteAllUserData(userId);
@@ -379,7 +378,6 @@ namespace AccountService.Service
                 throw;
             }
         }
-
 
         public async Task<string> GetIdentityToken(int userId, string userMail, string userName)
         {
