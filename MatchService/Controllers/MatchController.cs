@@ -49,6 +49,25 @@ namespace MatchService.Controllers
 
         }
 
+        [HttpDelete]
+        [Authorize]
+        [Route("/matchs/{userId}/{targetId}")]
+        public async Task<IActionResult> DeleteMatch([FromRoute] int userId, [FromRoute] int targetId)
+        {
+            try
+            {
+
+                await _matchService.DeleteMatch(userId, targetId);
+
+                return Ok();
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new ApiErrorModel(ex.Message, ex.StackTrace));
+            }
+
+        }
+
         [HttpGet]
         [Authorize]
         [Route("/matchs/GetUserMatches/{userId}")]

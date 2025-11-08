@@ -61,6 +61,11 @@ namespace MatchService.Service
             };
         }
 
+        public async Task DeleteMatch(int userId, int targetId)
+        {
+            await _matchRepository.DeleteMatch(userId, targetId);
+        }
+
 
         public async Task<List<UserDataDTO>> GetUserMatches(int userId)
         {

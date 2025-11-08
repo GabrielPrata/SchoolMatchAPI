@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System.Data;
+using System.Data.Common;
 using Dapper;
 using MatchService.Data.DTO;
 using MatchService.Model.SqlModels;
@@ -138,6 +139,19 @@ namespace MatchService.Repository
 
             return count == 2;
         }
+
+        public async Task DeleteMatch(int userId1, int userId2)
+        {
+            const string query = @"
+                DELETE FROM [dbo].[MATCH]
+                WHERE 
+                    (USUARIOREMETENTE = @UserId1 AND USUARIODESTINATARIO = @UserId2)
+                 OR (USUARIOREMETENTE = @UserId2 AND USUARIODESTINATARIO = @UserId1);
+            ";
+
+            await _connection.ExecuteAsync(query, new { UserId1 = userId1, UserId2 = userId2 });
+        }
+
 
         public async Task<IEnumerable<SqlUserData>> GetUserMatchs(int senderUserId)
         {

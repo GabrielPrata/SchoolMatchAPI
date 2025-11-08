@@ -7,5 +7,6 @@ namespace MatchService.Service
     {
         Task<LikeResponseDTO> SendUserLike(SendLikeDTO likeDTO);
         Task<List<UserDataDTO>> GetUserMatches(int userId);
+        Task DeleteMatch(int userId, int targetId);
     }
 }

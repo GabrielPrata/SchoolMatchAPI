@@ -48,7 +48,7 @@ namespace AccountService.Repository.Queries
                 u.SENHAUSUARIO   AS SenhaUsuario,
                 u.USUARIOVERIFICADO AS UsuarioVerificado,
                 u.CURSOUSUARIO   AS CursoUsuario,
-                u.USUARIOGENERO  AS UsuarioGenero
+                u.USUARIOGENERO  AS UsuarioGenero,
                 u.TELEFONE  AS Telefone
             FROM USUARIOS u
             WHERE u.IDUSUARIO = @id;";
